@@ -1,0 +1,126 @@
+// ignore_for_file: file_names
+
+import 'package:flutter/material.dart';
+import 'package:flutter_sdk_2/controllers/lock_currency_controller.dart';
+import 'package:flutter_sdk_2/controllers/selectCurrency_controller.dart';
+import 'package:flutter_sdk_2/controllers/setCurrencyController.dart';
+import 'package:flutter_sdk_2/styles/styles.dart';
+import 'package:flutter_sdk_2/utils/alert.dart';
+import 'package:flutter_sdk_2/utils/route.dart';
+import 'package:get/instance_manager.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+
+class AddressDetails extends StatelessWidget {
+  // const AddressDetails({Key? key}) : super(key: key);
+  final SelectCurrencyController _selectCurrencyController = Get.find();
+  final SetCurrencyController _setCurrencyController = Get.find();
+  final LockCurrencyController _lockCurrencyController = Get.find();
+
+  @override
+  Widget build(BuildContext context) {
+    double amount = _selectCurrencyController.getAmount().value;
+    String currency =
+        _setCurrencyController.setCurrencyResponse!['data']['currency'];
+    String network = _selectCurrencyController.selectedNetwork.value;
+    String address = _lockCurrencyController.lockCurrencyresponse['data']
+        ['addressInformation']['address'];
+
+    return Card(
+      child: Container(
+        padding: EdgeInsets.all(10),
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          children: [
+            Container(
+                width: MediaQuery.of(context).size.width,
+                child: Wrap(
+                  direction: Axis.horizontal,
+                  children: [
+                    Text('You are to transfer'),
+                    MyStyles.horizontalSpaceZero,
+                    Text(
+                      '$amount ${currency}',
+                      style: MyStyles.bodyTextBold,
+                    ),
+                    Text(' on $network network'),
+                  ],
+                )),
+            MyStyles.verticalSpaceOne,
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Text(
+                "Address",
+                style: MyStyles.bodyTextBold,
+              ),
+            ),
+            MyStyles.verticalSpaceZero,
+            Wrap(
+              children: [
+                Container(
+                  // width: MediaQuery.of(context).size.width,
+                  child: Text(
+                    '$address',
+                    style: MyStyles.bodyText,
+                  ),
+                ),
+                MyStyles.horizontalSpaceZero,
+                InkWell(
+                  child: Icon(
+                    Icons.copy,
+                    color: MyStyles.primaryPurple,
+                    size: 30,
+                  ),
+                  onTap: () async {
+                    await Clipboard.setData(ClipboardData(text: '$address'));
+                    Get.snackbar('Copied', 'Address copied!');
+                  },
+                ),
+              ],
+            ),
+            Image.network(
+              QRcode().getQRcode(currency, address, amount, network),
+              height: 200,
+              loadingBuilder: (a, b, c) {
+                return CircularProgressIndicator();
+              },
+            ),
+            MyStyles.verticalSpaceOne,
+            Container(
+                width: MediaQuery.of(context).size.width,
+                padding: EdgeInsets.all(10),
+                color: MyStyles.listeningColor,
+                child: Wrap(
+                  alignment: WrapAlignment.center,
+                  direction: Axis.horizontal,
+                  children: [
+                    Text(
+                        'We are now listening to your transaction on the address above ',
+                        style: MyStyles.bodyTextSmall),
+                  ],
+                )),
+            MyStyles.verticalSpaceOne,
+            Material(
+              child: InkWell(
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.all(10),
+                  color: MyStyles.faintRed,
+                  child: Center(
+                    child: Text(
+                      "TERMINATE",
+                      style: MyStyles.bodyTextSmall,
+                    ),
+                  ),
+                ),
+                onTap: () {
+                  showAlert(context);
+                },
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
