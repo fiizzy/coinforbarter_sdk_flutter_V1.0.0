@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 // // ignore_for_file: file_names
 // import 'package:flutter/material.dart';
-// import 'package:flutter_sdk_2/coinforbarter.dart';
+// import 'package:coinforbarter_sdk/coinforbarter.dart';
 
 // class ButtonPage extends StatelessWidget {
 

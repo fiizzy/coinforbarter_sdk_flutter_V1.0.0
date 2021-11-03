@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_print, file_names
 
-import 'package:flutter_sdk_2/controllers/serviceController.dart';
+import 'package:coinforbarter_sdk/controllers/serviceController.dart';
 import 'package:get/get.dart';
 
 class SelectCurrencyController extends GetxController {

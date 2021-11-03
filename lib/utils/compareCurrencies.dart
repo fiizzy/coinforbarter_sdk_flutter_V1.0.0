@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:flutter_sdk_2/controllers/selectCurrency_controller.dart';
-import 'package:flutter_sdk_2/controllers/serviceController.dart';
-import 'package:flutter_sdk_2/views/selectCurrency/currencyCard.dart';
+import 'package:coinforbarter_sdk/controllers/selectCurrency_controller.dart';
+import 'package:coinforbarter_sdk/controllers/serviceController.dart';
+import 'package:coinforbarter_sdk/views/selectCurrency/currencyCard.dart';
 import 'package:get/instance_manager.dart';
 
 class CompareCurrencies {

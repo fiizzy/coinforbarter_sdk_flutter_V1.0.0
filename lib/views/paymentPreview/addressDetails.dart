@@ -1,12 +1,12 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sdk_2/controllers/lock_currency_controller.dart';
-import 'package:flutter_sdk_2/controllers/selectCurrency_controller.dart';
-import 'package:flutter_sdk_2/controllers/setCurrencyController.dart';
-import 'package:flutter_sdk_2/styles/styles.dart';
-import 'package:flutter_sdk_2/utils/alert.dart';
-import 'package:flutter_sdk_2/utils/route.dart';
+import 'package:coinforbarter_sdk/controllers/lock_currency_controller.dart';
+import 'package:coinforbarter_sdk/controllers/selectCurrency_controller.dart';
+import 'package:coinforbarter_sdk/controllers/setCurrencyController.dart';
+import 'package:coinforbarter_sdk/styles/styles.dart';
+import 'package:coinforbarter_sdk/utils/alert.dart';
+import 'package:coinforbarter_sdk/utils/route.dart';
 import 'package:get/instance_manager.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';

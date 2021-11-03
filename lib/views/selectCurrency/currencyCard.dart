@@ -1,12 +1,12 @@
 // ignore_for_file: file_names, must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sdk_2/controllers/selectCurrency_controller.dart';
-import 'package:flutter_sdk_2/controllers/serviceController.dart';
-import 'package:flutter_sdk_2/controllers/setCurrencyController.dart';
-import 'package:flutter_sdk_2/styles/styles.dart';
-import 'package:flutter_sdk_2/utils/compareCurrencies.dart';
-import 'package:flutter_sdk_2/views/dialog/dialog.dart';
+import 'package:coinforbarter_sdk/controllers/selectCurrency_controller.dart';
+import 'package:coinforbarter_sdk/controllers/serviceController.dart';
+import 'package:coinforbarter_sdk/controllers/setCurrencyController.dart';
+import 'package:coinforbarter_sdk/styles/styles.dart';
+import 'package:coinforbarter_sdk/utils/compareCurrencies.dart';
+import 'package:coinforbarter_sdk/views/dialog/dialog.dart';
 import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 

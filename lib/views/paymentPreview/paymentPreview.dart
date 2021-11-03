@@ -2,14 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/index.dart';
-import 'package:flutter_sdk_2/controllers/globalizer.dart';
-import 'package:flutter_sdk_2/controllers/listening_to_payment_controller.dart';
-import 'package:flutter_sdk_2/controllers/lock_currency_controller.dart';
-import 'package:flutter_sdk_2/controllers/selectCurrency_controller.dart';
-import 'package:flutter_sdk_2/styles/styles.dart';
-import 'package:flutter_sdk_2/views/paymentPreview/addressDetails.dart';
-import 'package:flutter_sdk_2/views/selectCurrency/productCard.dart';
-import 'package:flutter_sdk_2/views/selectCurrency/securedByCoinfForBarter.dart';
+import 'package:coinforbarter_sdk/controllers/globalizer.dart';
+import 'package:coinforbarter_sdk/controllers/listening_to_payment_controller.dart';
+import 'package:coinforbarter_sdk/controllers/lock_currency_controller.dart';
+import 'package:coinforbarter_sdk/controllers/selectCurrency_controller.dart';
+import 'package:coinforbarter_sdk/styles/styles.dart';
+import 'package:coinforbarter_sdk/views/paymentPreview/addressDetails.dart';
+import 'package:coinforbarter_sdk/views/selectCurrency/productCard.dart';
+import 'package:coinforbarter_sdk/views/selectCurrency/securedByCoinfForBarter.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get.dart';
 

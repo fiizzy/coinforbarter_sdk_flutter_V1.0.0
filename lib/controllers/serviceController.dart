@@ -1,7 +1,7 @@
 // ignore_for_file: file_names, empty_catches
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sdk_2/services/services.dart';
+import 'package:coinforbarter_sdk/services/services.dart';
 import 'package:get/get.dart';
 
 class ServiceController extends GetxController {

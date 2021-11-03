@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sdk_2/controllers/lock_currency_controller.dart';
-import 'package:flutter_sdk_2/controllers/selectCurrency_controller.dart';
-import 'package:flutter_sdk_2/controllers/serviceController.dart';
-import 'package:flutter_sdk_2/styles/styles.dart';
-import 'package:flutter_sdk_2/views/paymentPreview/paymentPreview.dart';
+import 'package:coinforbarter_sdk/controllers/lock_currency_controller.dart';
+import 'package:coinforbarter_sdk/controllers/selectCurrency_controller.dart';
+import 'package:coinforbarter_sdk/controllers/serviceController.dart';
+import 'package:coinforbarter_sdk/styles/styles.dart';
+import 'package:coinforbarter_sdk/views/paymentPreview/paymentPreview.dart';
 import 'package:get/instance_manager.dart';
 import 'package:get/get.dart';
 

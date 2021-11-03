@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sdk_2/styles/styles.dart';
+import 'package:coinforbarter_sdk/styles/styles.dart';
 
 class NextButton extends StatefulWidget {
   // NextButton({Key? key}) : super(key: key);

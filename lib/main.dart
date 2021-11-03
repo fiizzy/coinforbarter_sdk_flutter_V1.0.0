@@ -1,5 +1,5 @@
 // import 'package:flutter/material.dart';
-// import 'package:flutter_sdk_2/views/buttonPage/buttonPage.dart';
+// import 'package:coinforbarter_sdk/views/buttonPage/buttonPage.dart';
 // import 'package:get/get.dart';
 
 // void main() {

@@ -1,16 +1,15 @@
 # flutter_sdk
 
-A new Flutter project.
+CoinForBarter Flutter SDK.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This SDK allows you to recieve payments in cryptocurrency for your projects.
 
-A few resources to get you started if this is your first Flutter project:
+Follow these simple steps to start
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+1. Visit www.coinforbarter.com to get started by creating an account.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+2. Go to the API section of the dashboard and get your _public keys_ [test keys for testing]
+
+3. import the CoinForBarter SDK and follow the code example.

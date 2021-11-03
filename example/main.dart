@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sdk_2/coinforbarter.dart';
+import 'package:coinforbarter_sdk/coinforbarter.dart';
 
 class ButtonPage extends StatelessWidget {
   final PaymentConfig newPayment = PaymentConfig(

@@ -1,10 +1,10 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:flutter_sdk_2/controllers/selectCurrency_controller.dart';
-import 'package:flutter_sdk_2/styles/styles.dart';
-import 'package:flutter_sdk_2/utils/compareCurrencies.dart';
-import 'package:flutter_sdk_2/views/selectCurrency/productCard.dart';
-import 'package:flutter_sdk_2/views/selectCurrency/securedByCoinfForBarter.dart';
+import 'package:coinforbarter_sdk/controllers/selectCurrency_controller.dart';
+import 'package:coinforbarter_sdk/styles/styles.dart';
+import 'package:coinforbarter_sdk/utils/compareCurrencies.dart';
+import 'package:coinforbarter_sdk/views/selectCurrency/productCard.dart';
+import 'package:coinforbarter_sdk/views/selectCurrency/securedByCoinfForBarter.dart';
 import 'package:get/instance_manager.dart';
 
 class SelectCurrency extends StatelessWidget {

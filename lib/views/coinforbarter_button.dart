@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sdk_2/controllers/globalizer.dart';
-import 'package:flutter_sdk_2/controllers/selectCurrency_controller.dart';
-import 'package:flutter_sdk_2/controllers/serviceController.dart';
-import 'package:flutter_sdk_2/models/config.dart';
-import 'package:flutter_sdk_2/styles/styles.dart';
-import 'package:flutter_sdk_2/views/selectCurrency/selectCurrency.dart';
+import 'package:coinforbarter_sdk/controllers/globalizer.dart';
+import 'package:coinforbarter_sdk/controllers/selectCurrency_controller.dart';
+import 'package:coinforbarter_sdk/controllers/serviceController.dart';
+import 'package:coinforbarter_sdk/models/config.dart';
+import 'package:coinforbarter_sdk/styles/styles.dart';
+import 'package:coinforbarter_sdk/views/selectCurrency/selectCurrency.dart';
 import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 
