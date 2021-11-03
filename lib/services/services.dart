@@ -24,7 +24,7 @@ class Services {
       // "customerPhoneNumber":
       //     _globerlizerController.paymentConfig.customerPhoneNumber ??
       //         'No Phone Number',
-      "meta": {"from": "Flutter SDK Version 1.0"}
+      "meta": {"from": "Flutter SDK Version 1.0.0"}
     };
     try {
       response = await http.post(

@@ -17,7 +17,7 @@ class ButtonPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: CoinForBarter(
+          child: CoinForBarterButton(
               color: Colors.red,
               textColor: Colors.white,
               paymentConfig: newPayment)),
@@ -25,7 +25,7 @@ class ButtonPage extends StatelessWidget {
   }
 }
 
-//Function arguments value would be return from the server after the plan terminates [successful or Unsuccessful]
+//Function arguments value would be returned from the server after the payment terminates [successful or Unsuccessful]
 myCallBackFunction(int statusCode, String b, dynamic c, Status s) {
   //Payment status can either be Status.error or Status.success
   Status.error;

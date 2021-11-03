@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 
 // ignore: must_be_immutable
-class CoinForBarter extends StatelessWidget {
+class CoinForBarterButton extends StatelessWidget {
   final serviceController = Get.put(ServiceController());
   final SelectCurrencyController _selectCurrencyController =
       Get.put(SelectCurrencyController());
@@ -20,7 +20,7 @@ class CoinForBarter extends StatelessWidget {
   final PaymentConfig paymentConfig;
   String businessName = '';
 
-  CoinForBarter({
+  CoinForBarterButton({
     Key? key,
     this.color,
     this.textColor,
@@ -62,7 +62,7 @@ class CoinForBarter extends StatelessWidget {
                 ),
                 MyStyles.horizontalSpaceZero,
                 Obx(() => !serviceController.isLoading.value
-                    ? Text('Pay with CoinForBarter',
+                    ? Text('Pay with CoinForBarterButton',
                         style: TextStyle(color: textColor))
                     : const CircularProgressIndicator(
                         color: Colors.white,
