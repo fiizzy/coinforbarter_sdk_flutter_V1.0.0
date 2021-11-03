@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 
 // ignore: must_be_immutable
-class CustomButton extends StatelessWidget {
+class CoinForBarter extends StatelessWidget {
   final serviceController = Get.put(ServiceController());
   final SelectCurrencyController _selectCurrencyController =
       Get.put(SelectCurrencyController());
@@ -20,7 +20,7 @@ class CustomButton extends StatelessWidget {
   final PaymentConfig paymentConfig;
   String businessName = '';
 
-  CustomButton({
+  CoinForBarter({
     Key? key,
     this.color,
     this.textColor,
