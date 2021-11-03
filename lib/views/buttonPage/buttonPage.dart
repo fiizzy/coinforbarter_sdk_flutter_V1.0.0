@@ -5,7 +5,7 @@ import 'package:flutter_sdk_2/views/main_button.dart';
 
 class ButtonPage extends StatelessWidget {
   final PaymentConfig newPayment = PaymentConfig(
-      publicKey: 'u4p4SgRL4tjtS431630869851565fRJXKwYMikXqJ2',
+      publicKey: 'C4B_TEST-xMxiwbIsK1632761320337oB8yYtGe3K8wBXFPPhZQ',
       txRef: 'Flutter final Reference 1',
       amount: 0.1,
       baseCurrency: 'ETH',

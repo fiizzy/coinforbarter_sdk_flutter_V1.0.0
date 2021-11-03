@@ -1,5 +1,6 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, empty_catches
 
+import 'package:flutter/material.dart';
 import 'package:flutter_sdk_2/services/services.dart';
 import 'package:get/get.dart';
 
@@ -42,8 +43,9 @@ class ServiceController extends GetxController {
       var listingsMap = await c4bservices.getCurrencyListings();
       currencyListings = listingsMap['data'];
       isLoading.value = false;
+      debugPrint('Currenclisting sucess');
     } catch (erorr) {
-      Get.snackbar('Error', "Couldn't get currency listings");
+      // Get.snackbar('Error', "Couldn't get currency listings");
     }
   }
 
@@ -54,8 +56,6 @@ class ServiceController extends GetxController {
       Map listingsMap = await c4bservices.cancelPayments(paymentID);
       currencyListings = listingsMap['data'];
       isLoading.value = false;
-    } catch (erorr) {
-      Get.snackbar('Error', "Couldn't Cancel Payment");
-    }
+    } catch (erorr) {}
   }
 }

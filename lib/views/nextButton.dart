@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_sdk_2/styles/styles.dart';
 
@@ -7,11 +9,12 @@ class NextButton extends StatefulWidget {
   final Color? textColor;
   final String? route;
 
-  NextButton({
+  const NextButton({
+    Key? key,
     this.color,
     this.textColor,
     this.route,
-  });
+  }) : super(key: key);
 
   @override
   _NextButtonState createState() => _NextButtonState();

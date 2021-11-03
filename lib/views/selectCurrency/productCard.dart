@@ -1,3 +1,4 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_sdk_2/styles/styles.dart';
 
@@ -8,7 +9,7 @@ class ProductCard extends StatelessWidget {
   final String? baseCurrrency;
 
   // ignore: use_key_in_widget_constructors
-  ProductCard(
+  const ProductCard(
       {this.businessName,
       this.paymentDescription,
       this.amount,
@@ -22,22 +23,18 @@ class ProductCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.circle),
-                  MyStyles.horizontalSpaceZero,
-                  Container(
-                    child: Text(businessName!),
-                  )
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.circle),
+                MyStyles.horizontalSpaceZero,
+                Text(businessName!)
+              ],
             ),
-            Divider(
+            const Divider(
               color: Colors.grey,
             ),
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Text(
                 "Description",
@@ -46,7 +43,7 @@ class ProductCard extends StatelessWidget {
               ),
             ),
             MyStyles.verticalSpaceZero,
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Text(
                 "$paymentDescription",
@@ -55,7 +52,7 @@ class ProductCard extends StatelessWidget {
               ),
             ),
             MyStyles.verticalSpaceOne,
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Text(
                 "Price",
@@ -64,7 +61,7 @@ class ProductCard extends StatelessWidget {
               ),
             ),
             MyStyles.verticalSpaceZero,
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Text(
                 "$amount $baseCurrrency",
@@ -74,7 +71,7 @@ class ProductCard extends StatelessWidget {
             ),
           ],
         ),
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
       ),
     );
   }

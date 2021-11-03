@@ -58,7 +58,7 @@ class _PaymentPreviewState extends State<PaymentPreview> {
                         .lockCurrencyresponse['data']['currency'],
                   ),
                   MyStyles.verticalSpaceZero,
-                  SecuredByCoinForBarter(),
+                  const SecuredByCoinForBarter(),
                   MyStyles.verticalSpaceOne,
                   Text(
                     "Address",

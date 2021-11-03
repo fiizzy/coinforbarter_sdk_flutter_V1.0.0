@@ -17,6 +17,8 @@ class AddressDetails extends StatelessWidget {
   final SetCurrencyController _setCurrencyController = Get.find();
   final LockCurrencyController _lockCurrencyController = Get.find();
 
+  AddressDetails({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     double amount = _selectCurrencyController.getAmount().value;
@@ -28,26 +30,26 @@ class AddressDetails extends StatelessWidget {
 
     return Card(
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         width: MediaQuery.of(context).size.width,
         child: Column(
           children: [
-            Container(
+            SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: Wrap(
                   direction: Axis.horizontal,
                   children: [
-                    Text('You are to transfer'),
+                    const Text('You are to transfer'),
                     MyStyles.horizontalSpaceZero,
                     Text(
-                      '$amount ${currency}',
+                      '$amount $currency}',
                       style: MyStyles.bodyTextBold,
                     ),
                     Text(' on $network network'),
                   ],
                 )),
             MyStyles.verticalSpaceOne,
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Text(
                 "Address",
@@ -57,12 +59,9 @@ class AddressDetails extends StatelessWidget {
             MyStyles.verticalSpaceZero,
             Wrap(
               children: [
-                Container(
-                  // width: MediaQuery.of(context).size.width,
-                  child: Text(
-                    '$address',
-                    style: MyStyles.bodyText,
-                  ),
+                Text(
+                  address,
+                  style: MyStyles.bodyText,
                 ),
                 MyStyles.horizontalSpaceZero,
                 InkWell(
@@ -72,7 +71,7 @@ class AddressDetails extends StatelessWidget {
                     size: 30,
                   ),
                   onTap: () async {
-                    await Clipboard.setData(ClipboardData(text: '$address'));
+                    await Clipboard.setData(ClipboardData(text: address));
                     Get.snackbar('Copied', 'Address copied!');
                   },
                 ),
@@ -82,13 +81,13 @@ class AddressDetails extends StatelessWidget {
               QRcode().getQRcode(currency, address, amount, network),
               height: 200,
               loadingBuilder: (a, b, c) {
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               },
             ),
             MyStyles.verticalSpaceOne,
             Container(
                 width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 color: MyStyles.listeningColor,
                 child: Wrap(
                   alignment: WrapAlignment.center,
@@ -104,7 +103,7 @@ class AddressDetails extends StatelessWidget {
               child: InkWell(
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   color: MyStyles.faintRed,
                   child: Center(
                     child: Text(

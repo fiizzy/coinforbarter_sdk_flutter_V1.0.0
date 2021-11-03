@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:flutter_sdk_2/controllers/selectCurrency_controller.dart';
@@ -16,16 +16,17 @@ class CurrencyCard extends StatelessWidget {
   final ServiceController _serviceController = Get.find();
   final SetCurrencyController _setCurrencyController =
       Get.put(SetCurrencyController());
-  List networks = [];
+  final List networks;
   late String currency = '';
   late String abbrevation = '';
   String? selectedCurrency;
 
   CurrencyCard({
+    Key? key,
     required this.networks,
     required this.currency,
     required this.abbrevation,
-  });
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     _selectCurrencyController.getCurrencies();
@@ -38,13 +39,13 @@ class CurrencyCard extends StatelessWidget {
     return Obx(() => Card(
           color: Colors.white,
           child: Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       backgroundColor: Colors.orange,
                       backgroundImage: null,
                     ),
@@ -65,8 +66,8 @@ class CurrencyCard extends StatelessWidget {
                               strokeWidth: 1,
                               color: MyStyles.primaryPurple,
                             )
-                          : Text('Network'),
-                      icon: Icon(Icons.keyboard_arrow_down_outlined),
+                          : const Text('Network'),
+                      icon: const Icon(Icons.keyboard_arrow_down_outlined),
                       style: TextStyle(color: MyStyles.darkGrey),
                       onChanged: (a) async {
                         selectedCurrency = _selectCurrencyController
@@ -82,10 +83,6 @@ class CurrencyCard extends StatelessWidget {
                                 _selectCurrencyController.selectedNetwork,
                                 _setCurrencyController.toJsonTestMap);
 
-                        print(_serviceController.paymentID);
-                        print(selectedCurrency);
-                        print(_selectCurrencyController.selectedNetwork);
-                        print(_setCurrencyController.toJsonTestMap);
                         await infoDialog(context, setCurrencyResponse);
                         selectedCurrency = '';
                       },
@@ -100,8 +97,6 @@ class CurrencyCard extends StatelessWidget {
                           onTap: () {
                             _selectCurrencyController.handleDropDownChnages(
                                 networks, value);
-
-                            print(value);
                           },
                           value: value,
                           child: Text(

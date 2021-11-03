@@ -10,7 +10,6 @@ import 'package:get/instance_manager.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
-  //Instatiate controllers for Global use
   final serviceController = Get.put(ServiceController());
   final SelectCurrencyController _selectCurrencyController =
       Get.put(SelectCurrencyController());

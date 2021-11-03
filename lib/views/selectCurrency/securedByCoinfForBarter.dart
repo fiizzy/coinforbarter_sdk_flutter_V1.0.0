@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_sdk_2/styles/styles.dart';
 
@@ -8,17 +10,15 @@ class SecuredByCoinForBarter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Container(
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.lock, size: 15),
+            const Icon(Icons.lock, size: 15),
             MyStyles.horizontalSpaceZero,
-            Container(
-              child: Text(
-                'Secured By CoinfForBarter',
-                style: MyStyles.bodyTextSmall,
-              ),
+            Text(
+              'Secured By CoinfForBarter',
+              style: MyStyles.bodyTextSmall,
             )
           ],
         ),

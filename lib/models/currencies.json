@@ -1,0 +1,114 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "currency": "dogecoin",
+      "symbol": "Ð",
+      "abbreviation": "DOGE",
+      "isAvailable": true,
+      "type": "crypto",
+      "decimals": 8,
+      "networks": ["dogecoin", "BEP20"]
+    },
+    {
+      "currency": "dollar",
+      "symbol": "$",
+      "abbreviation": "USD",
+      "isAvailable": true,
+      "type": "fiat",
+      "decimals": 2,
+      "networks": []
+    },
+    {
+      "currency": "ethereum",
+      "symbol": "Ξ",
+      "abbreviation": "ETH",
+      "isAvailable": true,
+      "type": "crypto",
+      "decimals": 18,
+      "networks": ["ERC20", "BEP20"]
+    },
+    {
+      "currency": "tether US",
+      "symbol": "₮",
+      "abbreviation": "USDT",
+      "isAvailable": true,
+      "type": "crypto",
+      "decimals": 18,
+      "networks": ["ERC20", "BEP20"]
+    },
+    {
+      "currency": "busd",
+      "symbol": "$",
+      "abbreviation": "BUSD",
+      "isAvailable": true,
+      "type": "crypto",
+      "decimals": 18,
+      "networks": ["ERC20", "BEP20"]
+    },
+    {
+      "currency": "wrapped bitcoin",
+      "symbol": "$",
+      "abbreviation": "WBTC",
+      "isAvailable": true,
+      "type": "crypto",
+      "decimals": 8,
+      "networks": ["ERC20"]
+    },
+    {
+      "currency": "dai",
+      "symbol": "$",
+      "abbreviation": "DAI",
+      "isAvailable": true,
+      "type": "crypto",
+      "decimals": 18,
+      "networks": ["ERC20", "BEP20"]
+    },
+    {
+      "currency": "paxus standard",
+      "symbol": "$",
+      "abbreviation": "PAX",
+      "isAvailable": true,
+      "type": "crypto",
+      "decimals": 18,
+      "networks": ["ERC20", "BEP20"]
+    },
+    {
+      "currency": "naira",
+      "symbol": "₦",
+      "abbreviation": "NGN",
+      "isAvailable": true,
+      "type": "fiat",
+      "decimals": 2,
+      "networks": []
+    },
+    {
+      "currency": "bitcoin cash",
+      "symbol": "$",
+      "abbreviation": "BCH",
+      "isAvailable": true,
+      "type": "crypto",
+      "decimals": 8,
+      "networks": ["BEP20", "BCH"]
+    },
+    {
+      "currency": "usd coin",
+      "symbol": "$",
+      "abbreviation": "USDC",
+      "isAvailable": true,
+      "type": "crypto",
+      "decimals": 18,
+      "networks": ["ERC20", "BEP20"]
+    },
+    {
+      "currency": "bitcoin",
+      "symbol": "₿",
+      "abbreviation": "BTC",
+      "isAvailable": true,
+      "type": "crypto",
+      "decimals": 8,
+      "networks": ["BTC", "BEP20", "ERC20"]
+    }
+  ],
+  "message": "Currencies fetched"
+}

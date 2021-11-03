@@ -1,6 +1,6 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_sdk_2/controllers/selectCurrency_controller.dart';
-import 'package:flutter_sdk_2/models/setCurrency.dart';
 import 'package:flutter_sdk_2/styles/styles.dart';
 import 'package:flutter_sdk_2/utils/compareCurrencies.dart';
 import 'package:flutter_sdk_2/views/selectCurrency/productCard.dart';
@@ -10,7 +10,8 @@ import 'package:get/instance_manager.dart';
 class SelectCurrency extends StatelessWidget {
   final SelectCurrencyController _selectCurrencyController =
       Get.put(SelectCurrencyController());
-  final SetCurrency _setCurrencyModel = SetCurrency();
+
+  SelectCurrency({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class SelectCurrency extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-            title: Text("Select Currency"),
+            title: const Text("Select Currency"),
             backgroundColor: MyStyles.primaryPurple),
         backgroundColor: MyStyles.primaryPurple,
         body: SafeArea(
