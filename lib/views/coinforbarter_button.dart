@@ -49,7 +49,7 @@ class CoinForBarterButton extends StatelessWidget {
           }
         },
         child: Container(
-          color: color,
+          color: color ?? MyStyles.primaryPurple,
           width: MediaQuery.of(context).size.width * .8,
           height: MyStyles.buttonHeight,
           child: Center(
@@ -58,12 +58,12 @@ class CoinForBarterButton extends StatelessWidget {
               children: [
                 Icon(
                   Icons.lock,
-                  color: textColor,
+                  color: textColor ?? MyStyles.white,
                 ),
                 MyStyles.horizontalSpaceZero,
                 Obx(() => !serviceController.isLoading.value
                     ? Text('Pay with CoinForBarterButton',
-                        style: TextStyle(color: textColor))
+                        style: TextStyle(color: textColor ?? MyStyles.white))
                     : const CircularProgressIndicator(
                         color: Colors.white,
                         strokeWidth: 1,

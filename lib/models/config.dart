@@ -26,18 +26,3 @@ enum Status {
   success,
   error,
 }
-
-class CallbackType {
-  dynamic amount;
-  String? currency;
-  CustomerType? customerType;
-  Status? status;
-}
-
-class CustomerType {
-  String? name;
-  String? email;
-  String? phoneNumber;
-
-  CustomerType({this.name, this.email, this.phoneNumber});
-}

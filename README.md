@@ -1,4 +1,4 @@
-# flutter_sdk
+# CoinForBarter SDK
 
 CoinForBarter Flutter SDK.
 
@@ -12,4 +12,12 @@ Follow these simple steps to start
 
 2. Go to the API section of the dashboard and get your _public keys_ [test keys for testing]
 
-3. import the CoinForBarter SDK and follow the code example.
+3. Import the CoinForBarter SDK and follow the code example.
+
+> **IMPORTANT:**
+>
+> To use CoinForBarter SDK, you must use `GetMaterialApp` instead of just `MaterialApp` at the start of your entire project.
+>
+> This is because CoinForBarter SDK depends contextless state management and depends on the [GetX_package](https://pub.dev/packages/get).
+>
+> This however doesn't disturb any start managment package that you are using.
