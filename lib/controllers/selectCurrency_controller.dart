@@ -77,6 +77,7 @@ class SelectCurrencyController extends GetxController {
   //Get expiry of the payment
   getExpiryTime() {
     expiryTime = serviceController.paymentDetails['data']['expiresBy'];
+    print(expiryTime);
     return expiryTime;
   }
 

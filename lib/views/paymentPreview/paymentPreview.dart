@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:coinforbarter_sdk/utils/calculate_expiry_time.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/index.dart';
 import 'package:coinforbarter_sdk/controllers/globalizer.dart';
@@ -31,8 +32,16 @@ class _PaymentPreviewState extends State<PaymentPreview> {
     debugPrint('${_globalizerController.paymentConfig.publicKey}');
     final ListeningToPaymentController _listeningToPaymentController =
         Get.put(ListeningToPaymentController());
-    int endTime = DateTime.now().millisecondsSinceEpoch + 1000 * 10;
-    _selectCurrencyController.getExpiryTime();
+
+    //This gets the expiry time sent from the API in UTC format
+    String getExpiryTime = _selectCurrencyController.getExpiryTime();
+
+    //This calculates the expiry time difference from the current time.
+    int countDownInSeconds = calculateExpiryTime(getExpiryTime);
+
+    //Converting to millisecond since epoch just so our countdown plugin can read it in seconds.
+    int endTime =
+        DateTime.now().millisecondsSinceEpoch + 1000 * countDownInSeconds;
     _listeningToPaymentController.statusCheker();
 
     return Scaffold(
