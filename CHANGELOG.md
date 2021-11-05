@@ -1,11 +1,16 @@
 # CHANGELOG.md
 
-## 1.0.1 (2021-11-4)
+## 1.0.1 (2021-11-5)
 
 Changes:
 
-- Payment now fully supports test keys from www.coinforbarter.customize
-- Customizable button button color and text color
+- [README.md](README.md) now shows a full integration example.
+  >
+- Payment now fully supports test keys gotten from www.coinforbarter.com
+  >
+- All cryptocurrencies now have corresponding icons
+  >
+- Customizable button, color and text color
 
 ## 1.0.0 (2021-11-3)
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:coinforbarter_sdk/src/views/buttonPage/buttonPage.dart';
-import 'package:get/get.dart';
+import 'coinforbarter.dart';
 
 void main() {
   runApp(const MyApp());
