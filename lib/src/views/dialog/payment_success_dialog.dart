@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:coinforbarter_sdk/controllers/globalizer.dart';
-import 'package:coinforbarter_sdk/models/config.dart';
-import 'package:coinforbarter_sdk/styles/styles.dart';
+import 'package:coinforbarter_sdk/src/controllers/globalizer.dart';
+import 'package:coinforbarter_sdk/src/models/config.dart';
+import 'package:coinforbarter_sdk/src/styles/styles.dart';
 import 'package:get/get.dart';
 
 ///This function handles coinForbarter's internal payment outcome before firing merchant's callback

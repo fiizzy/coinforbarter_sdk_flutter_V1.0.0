@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_final_fields, file_names
 
-import 'package:coinforbarter_sdk/controllers/selectCurrency_controller.dart';
-import 'package:coinforbarter_sdk/models/setCurrency.dart';
-import 'package:coinforbarter_sdk/services/services.dart';
+import 'package:coinforbarter_sdk/src/controllers/selectCurrency_controller.dart';
+import 'package:coinforbarter_sdk/src/models/setCurrency.dart';
+import 'package:coinforbarter_sdk/src/services/services.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/get.dart';
 

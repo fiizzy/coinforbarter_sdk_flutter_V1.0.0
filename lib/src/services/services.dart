@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/rendering.dart';
-import 'package:coinforbarter_sdk/controllers/globalizer.dart';
+import 'package:coinforbarter_sdk/src/controllers/globalizer.dart';
 import 'package:get/instance_manager.dart';
 import 'package:http/http.dart' as http;
-import 'package:coinforbarter_sdk/utils/route.dart';
+import 'package:coinforbarter_sdk/src/utils/route.dart';
 import 'package:get/get.dart';
 
 class Services {

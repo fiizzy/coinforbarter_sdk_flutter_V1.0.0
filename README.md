@@ -18,6 +18,6 @@ Follow these simple steps to start
 >
 > To use CoinForBarter SDK, you must use `GetMaterialApp` instead of just `MaterialApp` at the start of your entire project.
 >
-> This is because CoinForBarter SDK depends contextless state management and depends on the [GetX_package](https://pub.dev/packages/get).
+> This is because CoinForBarter SDK depends on contextless state management and depends on the [GetX_package](https://pub.dev/packages/get).
 >
 > This however doesn't disturb any start managment package that you are using.

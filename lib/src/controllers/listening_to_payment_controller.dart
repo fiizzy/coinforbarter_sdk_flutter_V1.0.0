@@ -1,17 +1,19 @@
 // ignore_for_file: unused_field
 
+import 'package:coinforbarter_sdk/src/controllers/selectCurrency_controller.dart';
+import 'package:coinforbarter_sdk/src/controllers/serviceController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:coinforbarter_sdk/controllers/globalizer.dart';
-import 'package:coinforbarter_sdk/controllers/selectCurrency_controller.dart';
-import 'package:coinforbarter_sdk/controllers/serviceController.dart';
-import 'package:coinforbarter_sdk/models/config.dart';
-import 'package:coinforbarter_sdk/views/dialog/payment_success_dialog.dart';
+
+import 'package:coinforbarter_sdk/src/models/config.dart';
+import 'package:coinforbarter_sdk/src/views/dialog/payment_success_dialog.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/instance_manager.dart';
 import 'package:get/state_manager.dart';
 import 'package:get/get.dart';
 import 'dart:async';
+
+import 'globalizer.dart';
 
 class ListeningToPaymentController extends GetxController {
   final ServiceController _serviceController = Get.find();

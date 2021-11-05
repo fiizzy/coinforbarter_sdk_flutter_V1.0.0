@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:coinforbarter_sdk/styles/styles.dart';
+import 'package:coinforbarter_sdk/src/styles/styles.dart';
 
 class SecuredByCoinForBarter extends StatelessWidget {
   const SecuredByCoinForBarter({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:coinforbarter_sdk/controllers/serviceController.dart';
-import 'package:coinforbarter_sdk/views/dialog/payment_success_dialog.dart';
+import 'package:coinforbarter_sdk/src/controllers/serviceController.dart';
+import 'package:coinforbarter_sdk/src/views/dialog/payment_success_dialog.dart';
 import 'package:get/instance_manager.dart';
 import 'package:get/get.dart';
 
