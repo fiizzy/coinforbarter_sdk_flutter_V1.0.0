@@ -1,13 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:coinforbarter_sdk/coinforbarter.dart';
 
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        //Include Get.key as the value of your navigatorKey likeso
+        navigatorKey: Get.key,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: ButtonPage());
+  }
+}
+
 class ButtonPage extends StatelessWidget {
   final PaymentConfig newPayment = PaymentConfig(
-      publicKey: 'xxxxx-xxxxx-xxxxx',
+      publicKey: 'C4B_TEST-xMxiwbIsK1632761320337oB8yYtGe3K8wBXFPPhZQ',
       txRef: 'Flutter final Reference 1',
       amount: 0.1,
       baseCurrency: 'ETH',
-      customer: 'JohnDoe@noemail.com',
+      customer: 'JohnDoe@noemail.cooom',
       customerFullName: 'John Amala Doe',
       callback: myCallBackFunction);
 
@@ -25,9 +46,6 @@ class ButtonPage extends StatelessWidget {
   }
 }
 
-//Function arguments value would be returned from the server after the payment terminates [successful or Unsuccessful]
-myCallBackFunction(int statusCode, String b, dynamic c, Status s) {
-  //Payment status can either be Status.error or Status.success
-  Status.error;
+myCallBackFunction(int a, String b, dynamic c, Status s) {
   debugPrint('At the end of the day, The call back function works');
 }
