@@ -25,11 +25,7 @@ class ProductCard extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.circle),
-                MyStyles.horizontalSpaceZero,
-                Text(businessName!)
-              ],
+              children: [Text(businessName!)],
             ),
             const Divider(
               color: Colors.grey,

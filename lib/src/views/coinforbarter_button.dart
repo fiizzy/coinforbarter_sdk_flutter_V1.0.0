@@ -29,13 +29,13 @@ class CoinForBarterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //making the paymentconfig globally accessible
-    _globerlizerController.globalizerMethod(paymentConfig);
     return ElevatedButton(
         style: ButtonStyle(
           padding: MaterialStateProperty.all(EdgeInsets.zero),
         ),
         onPressed: () async {
+          //making the paymentconfig globally accessible
+          _globerlizerController.globalizerMethod(paymentConfig);
           await serviceController.getCurrencyListings();
           await serviceController.runPostData(paymentConfig);
           if (serviceController.postDataResponse['message'] == 'Unauthorized') {

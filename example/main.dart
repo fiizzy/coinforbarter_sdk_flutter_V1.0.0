@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
 
 class ButtonPage extends StatelessWidget {
   final PaymentConfig newPayment = PaymentConfig(
-      publicKey: 'C4B_TEST-xMxiwbIsK1632761320337oB8yYtGe3K8wBXFPPhZQ',
+      publicKey: 'XXXXXXXX-XXXXXXXX-XXXXXXX',
       txRef: 'Flutter final Reference 1',
       amount: 0.1,
       baseCurrency: 'ETH',

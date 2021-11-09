@@ -26,7 +26,7 @@ This however doesn't disturb any state managment package that you are using.
 
 ```dart
 import 'package:flutter/material.dart';
-import 'coinforbarter.dart';
+import 'package:coinforbarter_sdk/coinforbarter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
 
 class ButtonPage extends StatelessWidget {
   final PaymentConfig newPayment = PaymentConfig(
-      publicKey: 'C4B_TEST-xMxiwbIsK1632761320337oB8yYtGe3K8wBXFPPhZQ',
+      publicKey: 'XXXXXXXX-XXXXXXXX-XXXXXXX',
       txRef: 'Flutter final Reference 1',
       amount: 0.1,
       baseCurrency: 'ETH',
@@ -80,6 +80,8 @@ myCallBackFunction(int a, String b, dynamic c, Status s) {
 ```
 
 ## Want to contribute
+
+Join the CoinForBarter Dev Slack Community [here](coinforbarter-fgc7751.slack.com)
 
 If you would like to contribute to the SDK (e.g. by improving the documentation, solving a bug or adding a cool new feature), please carefully review the [codebase](https://github.com/fiizzy/coinforbarter_sdk_flutter_V1.0.0) and send in your [pull request](https://github.com/fiizzy/coinforbarter_sdk_flutter_V1.0.0/pulls).
 

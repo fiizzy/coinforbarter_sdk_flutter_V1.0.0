@@ -72,7 +72,7 @@ Future<void> infoDialog(BuildContext context, Map setCurrencyResponse) async {
                               await _serviceController.getPaymentDetails(
                                   _serviceController.paymentID);
 
-                              Get.to(() => PaymentPreview());
+                              Get.off(() => PaymentPreview());
                             },
                           ),
                   )
