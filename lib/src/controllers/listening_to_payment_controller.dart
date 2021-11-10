@@ -25,7 +25,7 @@ class ListeningToPaymentController extends GetxController {
   ///This function handles all the logic behind listening to the addresses for payment progress.
   ///A payment can either be: In progress, error, canceled, timeout or success.
   void statusCheker() {
-    timer = Timer.periodic(const Duration(seconds: 5), (timerConst) async {
+    timer = Timer.periodic(const Duration(seconds: 30), (timerConst) async {
       await _serviceController.getPaymentDetails(_serviceController.paymentID);
 
       if (_selectCurrencyController.getStatus() == 'success') {

@@ -3,6 +3,7 @@ import 'package:coinforbarter_sdk/src/views/buttonPage/buttonPage.dart';
 import 'coinforbarter.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

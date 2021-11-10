@@ -46,7 +46,7 @@ class _PaymentPreviewState extends State<PaymentPreview> {
 
     return Scaffold(
         appBar: AppBar(
-            // leading: Container(),
+            leading: Container(),
             title: const Text("Transfer"),
             backgroundColor: MyStyles.primaryPurple),
         backgroundColor: MyStyles.primaryPurple,

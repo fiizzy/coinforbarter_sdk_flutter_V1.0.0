@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MyStyles {
   //Queries
@@ -28,35 +27,45 @@ class MyStyles {
 
   //General goodle font
 
-  //static TextStyle headerOne = GoogleFonts.getFont('Manrope', fontSize: 20, color: darkGrey);
+  // static TextStyle headerOne = const TextStyle(
+  //fontFamily: 'Manrope-Regular','Manrope', fontSize: 20, color: darkGrey);
 
-  static TextStyle headerOne = GoogleFonts.getFont(
-    'Manrope',
+  static TextStyle headerOne = TextStyle(
+    fontFamily: 'Manrope-Regular',
+    // 'Manrope',
     fontSize: 20,
     color: darkGrey,
   );
-  static TextStyle headerOneW = GoogleFonts.getFont(
-    'Manrope',
+  static TextStyle headerOneW = TextStyle(
+    fontFamily: 'Manrope-Regular',
+    // 'Manrope',
     fontSize: 20,
     color: white,
   );
 
-  static TextStyle buttonText = GoogleFonts.getFont(
-    'Manrope',
+  static TextStyle buttonText = const TextStyle(
+    fontFamily: 'Manrope-Regular',
+    // 'Manrope',
     fontSize: 16,
   );
-  static TextStyle bodyText = GoogleFonts.getFont(
-    'Manrope',
+  static TextStyle bodyText = const TextStyle(
+    fontFamily: 'Manrope-Regular',
+    // 'Manrope',
     fontSize: 14,
     color: Colors.black,
   );
-  static TextStyle bodyTextSmall = GoogleFonts.getFont(
-    'Manrope',
+  static TextStyle bodyTextSmall = const TextStyle(
+    fontFamily: 'Manrope-Regular',
+    // 'Manrope',
     fontSize: 10,
     color: Colors.black,
   );
-  static TextStyle bodyTextBold = GoogleFonts.getFont('Manrope',
-      fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold);
+  static TextStyle bodyTextBold = const TextStyle(
+      fontFamily: 'Manrope-Regular',
+      // 'Manrope',
+      fontSize: 14,
+      color: Colors.black,
+      fontWeight: FontWeight.bold);
 
   // Spacing
   static SizedBox verticalSpaceZero = const SizedBox(

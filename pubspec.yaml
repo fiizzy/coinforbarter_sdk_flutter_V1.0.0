@@ -12,7 +12,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_countdown_timer: ^4.1.0
   get: ^4.3.4
-  google_fonts: ^2.1.0
   http: ^0.13.4
 
 dev_dependencies:
@@ -27,3 +26,12 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  fonts:
+    - family: Manrope-Regular
+      fonts:
+        - asset: fonts/Manrope-Regular.ttf
+
+    - family: Manrope-Bold
+      fonts:
+        - asset: fonts/Manrope-Bold.ttf
