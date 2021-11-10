@@ -1,3 +1,4 @@
+import 'package:coinforbarter_sdk/src/utils/checkout_api_key.dart';
 import 'package:flutter/material.dart';
 import 'package:coinforbarter_sdk/src/controllers/globalizer.dart';
 import 'package:coinforbarter_sdk/src/controllers/selectCurrency_controller.dart';

@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:coinforbarter_sdk/src/utils/calculate_expiry_time.dart';
+import 'package:coinforbarter_sdk/src/views/paymentPreview/test_address.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/index.dart';
 import 'package:coinforbarter_sdk/src/controllers/globalizer.dart';
@@ -27,9 +28,8 @@ class _PaymentPreviewState extends State<PaymentPreview> {
     //We initialize all controllers for later use
     final SelectCurrencyController _selectCurrencyController = Get.find();
     final LockCurrencyController _lockCurrencyController = Get.find();
-    final GlobalizerController _globalizerController =
-        Get.put(GlobalizerController());
-    debugPrint('${_globalizerController.paymentConfig.publicKey}');
+    final GlobalizerController _globalizerController = Get.find();
+    debugPrint(_globalizerController.paymentConfig.publicKey);
     final ListeningToPaymentController _listeningToPaymentController =
         Get.put(ListeningToPaymentController());
 
@@ -102,7 +102,9 @@ class _PaymentPreviewState extends State<PaymentPreview> {
                           ],
                         ),
                       )),
-                  AddressDetails()
+                  GlobalizerController.isTest
+                      ? TestAddressCard()
+                      : AddressDetails()
                 ],
               ),
             ],

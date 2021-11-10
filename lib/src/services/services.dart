@@ -213,6 +213,7 @@ class Services {
       } else {
         Get.snackbar('Error', 'Something went wrong from the API');
       }
+      debugPrint('This is the cancel payment response : ${response.body}');
       return jsonDecode(response.body);
     } catch (erorr) {
       Get.snackbar('Error', 'Error setCurrency trying');

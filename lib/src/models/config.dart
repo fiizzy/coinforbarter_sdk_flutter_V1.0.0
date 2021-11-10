@@ -1,12 +1,12 @@
 class PaymentConfig {
-  String? publicKey;
-  String? txRef;
+  String publicKey;
+  String txRef;
   dynamic amount;
-  String? baseCurrency;
+  String baseCurrency;
   Map<String, dynamic>? meta;
-  String? customer;
+  String customer;
   String? customerPhoneNumber;
-  String? customerFullName;
+  String customerFullName;
 
   ///This receives a Status code, message, Data (By the user) and Payment Status enum to be used when the payment ends
   Function(int statuscode, String message, dynamic data, Status)? callback;
