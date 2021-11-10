@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyStyles {
   //Queries
@@ -25,28 +26,36 @@ class MyStyles {
   static Color listeningColor = const Color(0xffB3B2FF);
   static Color faintRed = const Color(0xffFFA9A9);
 
-  //Headers
-  static TextStyle headerOne = TextStyle(
+  //General goodle font
+
+  //static TextStyle headerOne = GoogleFonts.getFont('Manrope', fontSize: 20, color: darkGrey);
+
+  static TextStyle headerOne = GoogleFonts.getFont(
+    'Manrope',
     fontSize: 20,
     color: darkGrey,
   );
-  static TextStyle headerOneW = TextStyle(
+  static TextStyle headerOneW = GoogleFonts.getFont(
+    'Manrope',
     fontSize: 20,
     color: white,
   );
 
-  static TextStyle buttonText = const TextStyle(
+  static TextStyle buttonText = GoogleFonts.getFont(
+    'Manrope',
     fontSize: 16,
   );
-  static TextStyle bodyText = const TextStyle(
+  static TextStyle bodyText = GoogleFonts.getFont(
+    'Manrope',
     fontSize: 14,
     color: Colors.black,
   );
-  static TextStyle bodyTextSmall = const TextStyle(
+  static TextStyle bodyTextSmall = GoogleFonts.getFont(
+    'Manrope',
     fontSize: 10,
     color: Colors.black,
   );
-  static TextStyle bodyTextBold = const TextStyle(
+  static TextStyle bodyTextBold = GoogleFonts.getFont('Manrope',
       fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold);
 
   // Spacing
