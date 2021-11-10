@@ -35,7 +35,6 @@ class ListeningToPaymentController extends GetxController {
         _globalizerController.paymentConfig.callback!(200, 'payment successful',
             'Your CoinForbarter payment was successful', Status.success);
       } else if (_selectCurrencyController.getStatus() == 'error' ||
-          _selectCurrencyController.getStatus() == 'canceled' ||
           countDownValue == 0) {
         //Use Get.off to avoid memory leakage
         Get.off(() => const PaymentResponse(message: 'error'));

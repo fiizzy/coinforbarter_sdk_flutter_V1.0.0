@@ -12,15 +12,15 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class AddressDetails extends StatelessWidget {
-  // const AddressDetails({Key? key}) : super(key: key);
-  final SelectCurrencyController _selectCurrencyController = Get.find();
-  final SetCurrencyController _setCurrencyController = Get.find();
-  final LockCurrencyController _lockCurrencyController = Get.find();
-
   AddressDetails({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // const AddressDetails({Key? key}) : super(key: key);
+    final SelectCurrencyController _selectCurrencyController = Get.find();
+    final SetCurrencyController _setCurrencyController = Get.find();
+    final LockCurrencyController _lockCurrencyController = Get.find();
+
     double amount = _selectCurrencyController.getAmount().value;
     String currency =
         _setCurrencyController.setCurrencyResponse!['data']['currency'];

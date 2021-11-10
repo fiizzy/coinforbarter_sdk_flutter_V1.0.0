@@ -6,8 +6,6 @@ class TestAddressCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ServiceController _serviceController = Get.find();
-
     return SizedBox(
         child: Padding(
       padding: const EdgeInsets.all(8.0),

@@ -1,4 +1,3 @@
-import 'package:coinforbarter_sdk/src/utils/checkout_api_key.dart';
 import 'package:flutter/material.dart';
 import 'package:coinforbarter_sdk/src/controllers/globalizer.dart';
 import 'package:coinforbarter_sdk/src/controllers/selectCurrency_controller.dart';
@@ -11,11 +10,6 @@ import 'package:get/instance_manager.dart';
 
 // ignore: must_be_immutable
 class CoinForBarterButton extends StatelessWidget {
-  final serviceController = Get.put(ServiceController());
-  final SelectCurrencyController _selectCurrencyController =
-      Get.put(SelectCurrencyController());
-  final GlobalizerController _globerlizerController =
-      Get.put(GlobalizerController());
   final Color? color;
   final Color? textColor;
   final PaymentConfig paymentConfig;
@@ -30,6 +24,12 @@ class CoinForBarterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final serviceController = Get.put(ServiceController());
+    final SelectCurrencyController _selectCurrencyController =
+        Get.put(SelectCurrencyController());
+    final GlobalizerController _globerlizerController =
+        Get.put(GlobalizerController());
+
     return ElevatedButton(
         style: ButtonStyle(
           padding: MaterialStateProperty.all(EdgeInsets.zero),

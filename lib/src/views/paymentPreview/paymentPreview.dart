@@ -42,6 +42,8 @@ class _PaymentPreviewState extends State<PaymentPreview> {
     //Converting to millisecond since epoch just so our countdown plugin can read it in seconds.
     int endTime =
         DateTime.now().millisecondsSinceEpoch + 1000 * countDownInSeconds;
+
+    //A method called every 30s to get a payment response from the server
     _listeningToPaymentController.statusCheker();
 
     return Scaffold(

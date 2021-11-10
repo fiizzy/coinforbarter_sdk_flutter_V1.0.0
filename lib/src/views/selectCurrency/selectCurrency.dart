@@ -8,13 +8,12 @@ import 'package:coinforbarter_sdk/src/views/selectCurrency/securedByCoinfForBart
 import 'package:get/instance_manager.dart';
 
 class SelectCurrency extends StatelessWidget {
-  final SelectCurrencyController _selectCurrencyController =
-      Get.put(SelectCurrencyController());
-
   SelectCurrency({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final SelectCurrencyController _selectCurrencyController =
+        Get.put(SelectCurrencyController());
     //This gets a List of currencies available for use
     _selectCurrencyController.getCurrencies();
 
