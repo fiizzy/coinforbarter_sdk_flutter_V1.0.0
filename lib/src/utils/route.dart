@@ -6,7 +6,7 @@ class Util {
   static String END_POINT = 'https://api.coinforbarter.com/v1';
 
   static String PUBLIC_KEY =
-      "C4B_TEST-xMxiwbIsK1632761320337oB8yYtGe3K8wBXFPPhZQ";
+      "C4B_TEST-ZDOwlonfkWfjeI4UNGuRaUBhUqZID1630870497617";
 }
 
 class QRcode {

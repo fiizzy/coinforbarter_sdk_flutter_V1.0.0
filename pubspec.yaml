@@ -28,10 +28,22 @@ flutter:
   uses-material-design: true
 
   fonts:
+    - family: Manrope-Light
+      fonts:
+        - asset: fonts/Manrope-Light.ttf
+
     - family: Manrope-Regular
       fonts:
         - asset: fonts/Manrope-Regular.ttf
 
+    - family: Manrope-Medium
+      fonts:
+        - asset: fonts/Manrope-Medium.ttf
+
     - family: Manrope-Bold
       fonts:
         - asset: fonts/Manrope-Bold.ttf
+
+    - family: Manrope-e=ExtraBold
+      fonts:
+        - asset: fonts/Manrope-ExtraBold.ttf
