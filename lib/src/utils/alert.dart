@@ -8,7 +8,7 @@ showAlert(context) {
   final ServiceController _serviceController = Get.find();
   return showDialog<void>(
     context: context,
-    barrierDismissible: true, // user must tap button!
+    barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
         title: const Text('AlertDialog Title'),
