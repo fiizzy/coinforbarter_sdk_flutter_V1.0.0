@@ -24,7 +24,7 @@ class CoinForBarterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final serviceController = Get.put(ServiceController());
+    final _serviceController = Get.put(ServiceController());
     final SelectCurrencyController _selectCurrencyController =
         Get.put(SelectCurrencyController());
     final GlobalizerController _globerlizerController =
@@ -50,7 +50,7 @@ class CoinForBarterButton extends StatelessWidget {
                   color: textColor ?? MyStyles.white,
                 ),
                 MyStyles.horizontalSpaceZero,
-                Obx(() => !serviceController.isLoading.value
+                Obx(() => !_serviceController.isLoading.value
                     ? Text('Pay with CoinForBarterButton',
                         style: TextStyle(color: textColor ?? MyStyles.white))
                     : const CircularProgressIndicator(

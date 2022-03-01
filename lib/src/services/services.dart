@@ -6,14 +6,16 @@ import 'package:http/http.dart' as http;
 import 'package:coinforbarter_sdk/src/utils/route.dart';
 import 'package:get/get.dart';
 
+import '../../coinforbarter.dart';
+
 class Services {
   final GlobalizerController _globerlizerController =
       Get.put(GlobalizerController());
 
   ///This posts the payment config to the server and return a response
   Future postData() async {
+    final ServiceController _serviceController = Get.find();
     debugPrint('${_globerlizerController.paymentConfig.customerPhoneNumber}');
-
     dynamic response;
     Map filteredConfig = {
       "txRef": _globerlizerController.paymentConfig.txRef,
@@ -36,6 +38,8 @@ class Services {
         },
         body: jsonEncode(filteredConfig),
       );
+      //set the statusCode inside of the controller.
+      _serviceController.postDataStatusCode = response.statusCode;
 
       //Handling Status codes Error Via Snackbar
       if (response.statusCode == 201 || response.statusCode == 200) {
@@ -49,7 +53,9 @@ class Services {
       } else if (response.body == "null") {
         Get.snackbar('Server', 'API returning null');
         return jsonDecode(response.body);
-      } else {}
+      } else {
+        return jsonDecode(response.body);
+      }
 
       debugPrint(response);
       // ignore: unused_catch_clause
@@ -60,6 +66,8 @@ class Services {
 
   //Get Payment Details Via ID
   Future getPaymentDetails(paymentID) async {
+    final ServiceController _serviceController = Get.find();
+
     dynamic response;
 
     try {
@@ -71,6 +79,9 @@ class Services {
               'Bearer ${_globerlizerController.paymentConfig.publicKey}',
         },
       );
+      //set the statusCode inside of the controller.
+      _serviceController.getPaymentDetailsStatusCode = response.statusCode;
+
       //Handling Status codes Error Via Snackbar
       if (response.statusCode == 201 || response.statusCode == 200) {
         return jsonDecode(response.body);

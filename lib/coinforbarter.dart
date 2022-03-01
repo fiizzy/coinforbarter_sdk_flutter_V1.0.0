@@ -27,4 +27,5 @@ export 'package:coinforbarter_sdk/src/views/selectCurrency/currencyCard.dart';
 export 'package:coinforbarter_sdk/src/views/selectCurrency/productCard.dart';
 export 'package:coinforbarter_sdk/src/views/selectCurrency/securedByCoinfForBarter.dart';
 export 'package:coinforbarter_sdk/src/views/selectCurrency/selectCurrency.dart';
+export 'package:coinforbarter_sdk/src/views/selectCurrency/payment_processor.dart';
 export 'package:get/get.dart';

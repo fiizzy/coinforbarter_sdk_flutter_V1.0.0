@@ -8,7 +8,7 @@ class ButtonPage extends StatelessWidget {
       publicKey: '1645778437579HPc1e4KJi13T0eQrSW3LP4lDkxpE1',
       txRef: 'Flutter final Reference 1',
       amount: 0.1,
-      baseCurrency: 'ETH',
+      baseCurrency: '',
       customer: 'JohnDoe@noemail.cooom',
       customerFullName: 'John Amala Doe',
       callback: myCallBackFunction);
