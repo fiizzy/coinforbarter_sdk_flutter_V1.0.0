@@ -27,16 +27,22 @@ class PaymentResponse extends StatelessWidget {
                         color: Colors.green,
                         size: 60,
                       )
-                    : const Icon(Icons.cached_rounded,
-                        color: Colors.red, size: 60)),
+                    : message == 'cancelled'
+                        ? const Icon(Icons.cancel, color: Colors.red, size: 60)
+                        : const Icon(Icons.cached_rounded,
+                            color: Colors.red, size: 60)),
             MyStyles.verticalSpaceZero,
-            message == 'sucess'
+            message == 'success'
                 ? const Text(
                     'Payment successful',
                   )
-                : const Text(
-                    'Payment Error',
-                  ),
+                : message == 'cancelled'
+                    ? const Text(
+                        'Payment Cancelled',
+                      )
+                    : const Text(
+                        'Payment Error',
+                      ),
             MyStyles.verticalSpaceTwo,
             ElevatedButton(
                 onPressed: () {
@@ -45,6 +51,12 @@ class PaymentResponse extends StatelessWidget {
                         200,
                         'payment successful',
                         'Your CoinForbarter payment was successful',
+                        Status.success);
+                  } else if (message == 'cancelled') {
+                    _globalizerController.paymentConfig.callback!(
+                        200,
+                        'payment cancelled',
+                        'Your CoinForbarter payment was cancelled',
                         Status.success);
                   } else {
                     _globalizerController.paymentConfig.callback!(

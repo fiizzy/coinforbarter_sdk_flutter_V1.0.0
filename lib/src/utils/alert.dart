@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:coinforbarter_sdk/src/controllers/serviceController.dart';
-import 'package:coinforbarter_sdk/src/views/dialog/payment_success_dialog.dart';
-import 'package:get/instance_manager.dart';
-import 'package:get/get.dart';
+import '../../coinforbarter.dart';
 
 showAlert(context) {
   final ServiceController _serviceController = Get.find();
+  final ListeningToPaymentController listening_to_payment_controller =
+      Get.find();
   return showDialog<void>(
     context: context,
     barrierDismissible: false, // user must tap button!
@@ -25,7 +24,8 @@ showAlert(context) {
             child: const Text('Terminate'),
             onPressed: () async {
               await _serviceController.cancelPayment();
-              Get.off(() => const PaymentResponse(message: 'error'));
+              listening_to_payment_controller.timer.cancel();
+              Get.off(() => const PaymentResponse(message: 'cancelled'));
             },
           ),
         ],

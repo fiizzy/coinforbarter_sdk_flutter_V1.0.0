@@ -30,5 +30,6 @@ void processPaymentRequest(PaymentConfig paymentConfig) async {
     CoinForBarterButton.businessName =
         _selectCurrencyController.getBusinessName();
     Get.to(() => SelectCurrency());
+    _serviceController.isLoading.value = false;
   }
 }

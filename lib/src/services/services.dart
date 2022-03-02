@@ -110,7 +110,7 @@ class Services {
 
     try {
       response = await http.get(
-        Uri.parse('${Util.END_POINT}/currencies/'),
+        Uri.parse('https://coinforbarter-app.herokuapp.com/v1/currencies'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
