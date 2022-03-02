@@ -5,10 +5,10 @@ import 'package:coinforbarter_sdk/coinforbarter.dart';
 
 class ButtonPage extends StatelessWidget {
   final PaymentConfig newPayment = PaymentConfig(
-      publicKey: 'C4B_TEST-xMxiwbIsK1632761320337oB8yYtGe3K8wBXFPPhZQ',
+      publicKey: '1645778437579HPc1e4KJi13T0eQrSW3LP4lDkxpE1',
       txRef: 'Flutter final Reference 1',
-      amount: 0.1,
-      baseCurrency: 'ETH',
+      amount: "2.1",
+      baseCurrency: 'NGN',
       customer: 'JohnDoe@noemail.cooom',
       customerFullName: 'John Amala Doe',
       callback: myCallBackFunction);
@@ -29,4 +29,5 @@ class ButtonPage extends StatelessWidget {
 
 myCallBackFunction(int a, String b, dynamic c, Status s) {
   debugPrint('At the end of the day, The call back function works');
+  Get.off(() => ButtonPage());
 }

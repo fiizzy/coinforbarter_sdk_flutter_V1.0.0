@@ -7,6 +7,7 @@ import 'package:coinforbarter_sdk/src/controllers/setCurrencyController.dart';
 import 'package:coinforbarter_sdk/src/styles/styles.dart';
 import 'package:coinforbarter_sdk/src/utils/compareCurrencies.dart';
 import 'package:coinforbarter_sdk/src/views/dialog/dialog.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 
@@ -19,14 +20,16 @@ class CurrencyCard extends StatelessWidget {
   final List networks;
   late String currency = '';
   late String abbrevation = '';
+  late String icon = '';
   String? selectedCurrency;
 
-  CurrencyCard({
-    Key? key,
-    required this.networks,
-    required this.currency,
-    required this.abbrevation,
-  }) : super(key: key);
+  CurrencyCard(
+      {Key? key,
+      required this.networks,
+      required this.currency,
+      required this.abbrevation,
+      required this.icon})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     _selectCurrencyController.getCurrencies();
@@ -45,9 +48,15 @@ class CurrencyCard extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const CircleAvatar(
-                      backgroundColor: Colors.orange,
-                      backgroundImage: null,
+                    SvgPicture.network(
+                      icon,
+                      placeholderBuilder: (BuildContext context) => Container(
+                        // padding: const EdgeInsets.all(5.0),
+                        child: const Icon(
+                          Icons.circle,
+                          color: Colors.orange,
+                        ),
+                      ),
                     ),
                     MyStyles.horizontalSpaceZero,
                     Text(

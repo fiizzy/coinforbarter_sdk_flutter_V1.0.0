@@ -25,6 +25,7 @@ class CompareCurrencies {
             abbrevation: listingCurrency['abbreviation'],
             networks: listingCurrency['networks'] as List<dynamic>,
             currency: listingCurrency['currency'],
+            icon: listingCurrency['currencyIcon'],
           ));
         } else {
           null;

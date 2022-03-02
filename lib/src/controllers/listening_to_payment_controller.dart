@@ -47,6 +47,19 @@ class ListeningToPaymentController extends GetxController {
         debugPrint('Payment failed');
         Get.snackbar('Payment failed', 'Time Expired');
         timer.cancel();
+      } else if (_selectCurrencyController.getStatus() == 'cancelled' ||
+          countDownValue == 0) {
+        //Use Get.off to avoid memory leakage
+        Get.off(() => const PaymentResponse(message: 'error'));
+        Get.snackbar('Payment failed', 'This payment failed due to an error');
+
+        _globalizerController.paymentConfig.callback!(200, 'payment failed',
+            'Your CoinForbarter payment failed', Status.error);
+
+        ///runcall back function
+        debugPrint('Payment failed');
+        Get.snackbar('Payment failed', 'Time Expired');
+        timer.cancel();
       } else if (_selectCurrencyController.getStatus() == 'in progress') {
         //do nothing
         debugPrint('this is in progress');

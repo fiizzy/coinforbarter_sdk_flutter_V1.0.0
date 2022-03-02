@@ -12,16 +12,22 @@ class ServiceController extends GetxController {
   List currencyListings = [];
   List cancelPaymentResponse = [];
   final Services c4bservices = Services();
+  int? postDataStatusCode;
+  int? getPaymentDetailsStatusCode;
 
   //Initalize payment
   Future runPostData(config) async {
     try {
       isLoading.value = true;
       postDataResponse = await c4bservices.postData();
-      paymentID = postDataResponse['data']['payment']['id'];
-      isLoading.value = false;
+      // postDataStatusCode = postDataResponse.statusCode;
+      if (postDataStatusCode == 201) {
+        paymentID = postDataResponse['data']['payment']['id'];
+        isLoading.value = false;
+      }
     } catch (error) {
       Get.snackbar('Error!', '$error');
+      debugPrint('runPostData() in serviceController throw error :$error');
     }
   }
 
@@ -30,6 +36,7 @@ class ServiceController extends GetxController {
     try {
       isLoading.value = true;
       paymentDetails = await c4bservices.getPaymentDetails(paymentID);
+      // getPaymentDetailsStatusCode = paymentDetails.statusCode;
       isLoading.value = false;
     } catch (erorr) {
       Get.snackbar('Error!', '$erorr');
@@ -53,8 +60,8 @@ class ServiceController extends GetxController {
   Future cancelPayment() async {
     try {
       isLoading.value = true;
-      Map listingsMap = await c4bservices.cancelPayments(paymentID);
-      currencyListings = listingsMap['data'];
+      Map cancelPayments = await c4bservices.cancelPayments(paymentID);
+      // currencyListings = listingsMap['data'];
       isLoading.value = false;
     } catch (erorr) {}
   }
