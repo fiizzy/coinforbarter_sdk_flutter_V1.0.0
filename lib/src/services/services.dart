@@ -15,7 +15,7 @@ class Services {
   ///This posts the payment config to the server and return a response
   Future postData() async {
     final ServiceController _serviceController = Get.find();
-    debugPrint('${_globerlizerController.paymentConfig.customerPhoneNumber}');
+    // debugPrint('${_globerlizerController.paymentConfig.customerPhoneNumber}');
     dynamic response;
     Map filteredConfig = {
       "txRef": _globerlizerController.paymentConfig.txRef,
@@ -57,7 +57,6 @@ class Services {
         return jsonDecode(response.body);
       }
 
-      debugPrint(response);
       // ignore: unused_catch_clause
     } on Exception catch (e) {
       Get.snackbar('Error', 'Error establishing connection');
@@ -191,7 +190,11 @@ class Services {
         Get.snackbar('404 Error', 'Check the endpoint again');
         return jsonDecode(response.body);
       } else {
-        Get.snackbar('Error', 'Something went wrong from the API');
+        debugPrint("This is the lock currency response: ${response.body}");
+
+        Get.snackbar(
+            'Error', 'Something went wrong from the API locking currency');
+        return jsonDecode(response.body);
       }
       // print(jsonDecode(response.body));
       return jsonDecode(response.body);
@@ -222,12 +225,13 @@ class Services {
         Get.snackbar('404 Error', 'Check the endpoint again');
         return jsonDecode(response.body);
       } else {
-        Get.snackbar('Error', 'Something went wrong from the API');
+        Get.snackbar('Error', 'Something went wrong from the API Cancelling');
+        return jsonDecode(response.body);
       }
-      debugPrint('This is the cancel payment response : ${response.body}');
+      debugPrint('Internal Server error : ${response.body}');
       return jsonDecode(response.body);
     } catch (erorr) {
-      Get.snackbar('Error', 'Error setCurrency trying');
+      Get.snackbar('Error', 'Can not cancel payment');
     }
   }
 }

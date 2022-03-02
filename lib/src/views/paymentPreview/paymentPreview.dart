@@ -92,7 +92,8 @@ class _PaymentPreviewState extends State<PaymentPreview> {
                                 _listeningToPaymentController.countDownValue =
                                     0;
                                 // _listeningToPaymentController.timer.cancel();
-                                debugPrint('the on end works');
+                                debugPrint(
+                                    'The time for this payment has expired');
                               },
                             ),
 

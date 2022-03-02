@@ -5,7 +5,7 @@ import 'package:coinforbarter_sdk/src/styles/styles.dart';
 class ProductCard extends StatelessWidget {
   final String? businessName;
   final String? paymentDescription;
-  final double? amount;
+  final num? amount;
   final String? baseCurrrency;
 
   // ignore: use_key_in_widget_constructors

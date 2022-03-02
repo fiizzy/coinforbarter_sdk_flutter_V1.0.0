@@ -8,8 +8,8 @@ class SelectCurrencyController extends GetxController {
   String? businessName;
   String? paymentDescription;
   String? baseCurrency;
-  RxDouble baseAmount = 0.0.obs;
-  RxDouble amount = 0.0.obs;
+  Rx<num> baseAmount = 0.0.obs;
+  Rx<num> amount = 0.0.obs;
   String? customer;
   String? txRef;
   List currencies = [];
@@ -35,7 +35,7 @@ class SelectCurrencyController extends GetxController {
 
   getBaseAmount() {
     return baseAmount.value =
-        serviceController.paymentDetails['data']['baseAmount'];
+        serviceController.paymentDetails['data']['baseAmount'].toDouble();
   }
 
   getBaseCurrency() {
@@ -52,7 +52,7 @@ class SelectCurrencyController extends GetxController {
   //Get the customer: email address
   getCustomer() {
     customer = serviceController.paymentDetails['data']['customer'];
-    print(customer);
+    // print(customer);
     return customer;
   }
 
@@ -77,14 +77,14 @@ class SelectCurrencyController extends GetxController {
   //Get expiry of the payment
   getExpiryTime() {
     expiryTime = serviceController.paymentDetails['data']['expiresBy'];
-    print(expiryTime);
+    // print(expiryTime);
     return expiryTime;
   }
 
   //Get the payment Status
   getStatus() {
     status.value = serviceController.paymentDetails['data']['status'];
-    print(status);
+    // print(status);
     return status;
   }
 }

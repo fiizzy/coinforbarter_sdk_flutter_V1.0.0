@@ -50,7 +50,7 @@ class ServiceController extends GetxController {
       var listingsMap = await c4bservices.getCurrencyListings();
       currencyListings = listingsMap['data'];
       isLoading.value = false;
-      debugPrint('Currenclisting sucess');
+      debugPrint('Currencies successfully fetched from the API!');
     } catch (erorr) {
       // Get.snackbar('Error', "Couldn't get currency listings");
     }

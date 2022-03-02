@@ -21,7 +21,7 @@ class AddressDetails extends StatelessWidget {
     final SetCurrencyController _setCurrencyController = Get.find();
     final LockCurrencyController _lockCurrencyController = Get.find();
 
-    double amount = _selectCurrencyController.getAmount().value;
+    num amount = _selectCurrencyController.getAmount().value;
     String currency =
         _setCurrencyController.setCurrencyResponse!['data']['currency'];
     String network = _selectCurrencyController.selectedNetwork.value;
@@ -81,9 +81,9 @@ class AddressDetails extends StatelessWidget {
             Image.network(
               QRcode().getQRcode(currency, address, amount, network),
               height: 200,
-              loadingBuilder: (a, b, c) {
-                return const CircularProgressIndicator();
-              },
+              // loadingBuilder: (a, b, c) {
+              //   return const CircularProgressIndicator();
+              // },
             ),
             MyStyles.verticalSpaceOne,
             Container(

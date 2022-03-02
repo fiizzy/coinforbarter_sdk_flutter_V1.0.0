@@ -29,40 +29,43 @@ class ListeningToPaymentController extends GetxController {
       await _serviceController.getPaymentDetails(_serviceController.paymentID);
 
       if (_selectCurrencyController.getStatus() == 'success') {
-        Get.off(() => const PaymentResponse(message: 'success'));
+        Get.offAll(() => const PaymentResponse(message: 'success'));
 
         //Run call back function
         _globalizerController.paymentConfig.callback!(200, 'payment successful',
             'Your CoinForbarter payment was successful', Status.success);
+
+        debugPrint('This payment was successful! ');
       } else if (_selectCurrencyController.getStatus() == 'error' ||
           countDownValue == 0) {
         //Use Get.off to avoid memory leakage
-        Get.off(() => const PaymentResponse(message: 'error'));
+        Get.offAll(() => const PaymentResponse(message: 'error'));
         Get.snackbar('Payment failed', 'This payment failed due to an error');
 
         _globalizerController.paymentConfig.callback!(200, 'payment failed',
             'Your CoinForbarter payment failed', Status.error);
 
         ///runcall back function
-        debugPrint('Payment failed');
+        debugPrint(
+            'This Payment failed because the time expired or it was cancelled');
         Get.snackbar('Payment failed', 'Time Expired');
         timer.cancel();
       } else if (_selectCurrencyController.getStatus() == 'cancelled' ||
           countDownValue == 0) {
         //Use Get.off to avoid memory leakage
-        Get.off(() => const PaymentResponse(message: 'error'));
+        Get.offAll(() => const PaymentResponse(message: 'error'));
         Get.snackbar('Payment failed', 'This payment failed due to an error');
 
         _globalizerController.paymentConfig.callback!(200, 'payment failed',
             'Your CoinForbarter payment failed', Status.error);
 
         ///runcall back function
-        debugPrint('Payment failed');
-        Get.snackbar('Payment failed', 'Time Expired');
+        debugPrint('This Payment failed because it was terminated/cancelled.');
+        Get.snackbar('Payment failed', 'Payment was cancelled');
         timer.cancel();
       } else if (_selectCurrencyController.getStatus() == 'in progress') {
         //do nothing
-        debugPrint('this is in progress');
+        // debugPrint('This is a periodic ');
       }
     });
   }
