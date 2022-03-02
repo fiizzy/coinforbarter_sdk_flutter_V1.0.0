@@ -25,7 +25,7 @@ showAlert(context) {
             onPressed: () async {
               await _serviceController.cancelPayment();
               listening_to_payment_controller.timer.cancel();
-              Get.off(() => const PaymentResponse(message: 'cancelled'));
+              Get.offAll(() => const PaymentResponse(message: 'cancelled'));
             },
           ),
         ],

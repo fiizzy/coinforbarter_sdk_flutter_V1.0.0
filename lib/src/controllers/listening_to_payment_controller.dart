@@ -29,7 +29,7 @@ class ListeningToPaymentController extends GetxController {
       await _serviceController.getPaymentDetails(_serviceController.paymentID);
 
       if (_selectCurrencyController.getStatus() == 'success') {
-        Get.off(() => const PaymentResponse(message: 'success'));
+        Get.offAll(() => const PaymentResponse(message: 'success'));
 
         //Run call back function
         _globalizerController.paymentConfig.callback!(200, 'payment successful',
@@ -37,7 +37,7 @@ class ListeningToPaymentController extends GetxController {
       } else if (_selectCurrencyController.getStatus() == 'error' ||
           countDownValue == 0) {
         //Use Get.off to avoid memory leakage
-        Get.off(() => const PaymentResponse(message: 'error'));
+        Get.offAll(() => const PaymentResponse(message: 'error'));
         Get.snackbar('Payment failed', 'This payment failed due to an error');
 
         _globalizerController.paymentConfig.callback!(200, 'payment failed',
@@ -50,7 +50,7 @@ class ListeningToPaymentController extends GetxController {
       } else if (_selectCurrencyController.getStatus() == 'cancelled' ||
           countDownValue == 0) {
         //Use Get.off to avoid memory leakage
-        Get.off(() => const PaymentResponse(message: 'error'));
+        Get.offAll(() => const PaymentResponse(message: 'error'));
         Get.snackbar('Payment failed', 'This payment failed due to an error');
 
         _globalizerController.paymentConfig.callback!(200, 'payment failed',
