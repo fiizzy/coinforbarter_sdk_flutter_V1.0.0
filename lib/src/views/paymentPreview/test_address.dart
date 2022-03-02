@@ -8,6 +8,8 @@ class TestAddressCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ServiceController _serviceController = Get.find();
+    final SelectCurrencyController _selectCurrencyController = Get.find();
+    double amount = _selectCurrencyController.getAmount().value;
     return SizedBox(
         child: Card(
       child: Padding(
@@ -45,6 +47,31 @@ class TestAddressCard extends StatelessWidget {
                   onTap: () async {
                     await Clipboard.setData(
                         const ClipboardData(text: "https://coinforbarter.com"));
+                    Get.snackbar('Copied', 'Address copied!');
+                  },
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              runAlignment: WrapAlignment.spaceBetween,
+              children: [
+                Text(
+                  "$amount",
+                  style: MyStyles.bodyText,
+                ),
+                MyStyles.horizontalSpaceZero,
+                InkWell(
+                  child: Icon(
+                    Icons.copy,
+                    color: MyStyles.primaryPurple,
+                    size: 20,
+                  ),
+                  onTap: () async {
+                    await Clipboard.setData(ClipboardData(text: "$amount"));
                     Get.snackbar('Copied', 'Address copied!');
                   },
                 ),
