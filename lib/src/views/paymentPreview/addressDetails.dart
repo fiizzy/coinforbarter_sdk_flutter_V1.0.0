@@ -21,7 +21,7 @@ class AddressDetails extends StatelessWidget {
     final SetCurrencyController _setCurrencyController = Get.find();
     final LockCurrencyController _lockCurrencyController = Get.find();
 
-    double amount = _selectCurrencyController.getAmount().value;
+    num amount = _selectCurrencyController.getAmount().value;
     String currency =
         _setCurrencyController.setCurrencyResponse!['data']['currency'];
     String network = _selectCurrencyController.selectedNetwork.value;

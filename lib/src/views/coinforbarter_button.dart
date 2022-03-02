@@ -1,3 +1,4 @@
+import 'package:coinforbarter_sdk/src/controllers/lock_currency_controller.dart';
 import 'package:coinforbarter_sdk/src/views/selectCurrency/payment_processor.dart';
 import 'package:flutter/material.dart';
 import 'package:coinforbarter_sdk/src/controllers/globalizer.dart';
@@ -25,6 +26,7 @@ class CoinForBarterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _serviceController = Get.put(ServiceController());
+    Get.put(LockCurrencyController());
     final SelectCurrencyController _selectCurrencyController =
         Get.put(SelectCurrencyController());
     final GlobalizerController _globerlizerController =

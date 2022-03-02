@@ -8,8 +8,8 @@ class SelectCurrencyController extends GetxController {
   String? businessName;
   String? paymentDescription;
   String? baseCurrency;
-  RxDouble baseAmount = 0.0.obs;
-  RxDouble amount = 0.0.obs;
+  Rx<num> baseAmount = 0.0.obs;
+  Rx<num> amount = 0.0.obs;
   String? customer;
   String? txRef;
   List currencies = [];
@@ -35,7 +35,7 @@ class SelectCurrencyController extends GetxController {
 
   getBaseAmount() {
     return baseAmount.value =
-        serviceController.paymentDetails['data']['baseAmount'];
+        serviceController.paymentDetails['data']['baseAmount'].toDouble();
   }
 
   getBaseCurrency() {

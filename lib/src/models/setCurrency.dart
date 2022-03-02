@@ -4,7 +4,7 @@ class SetCurrency {
   String? customer;
   String? txRef;
   String? baseCurrency;
-  double? amount;
+  num? amount;
 
   SetCurrency({this.amount, this.baseCurrency, this.customer, this.txRef});
 

@@ -190,7 +190,11 @@ class Services {
         Get.snackbar('404 Error', 'Check the endpoint again');
         return jsonDecode(response.body);
       } else {
-        Get.snackbar('Error', 'Something went wrong from the API');
+        debugPrint("This is the lock currency response: ${response.body}");
+
+        Get.snackbar(
+            'Error', 'Something went wrong from the API locking currency');
+        return jsonDecode(response.body);
       }
       // print(jsonDecode(response.body));
       return jsonDecode(response.body);
@@ -221,7 +225,8 @@ class Services {
         Get.snackbar('404 Error', 'Check the endpoint again');
         return jsonDecode(response.body);
       } else {
-        Get.snackbar('Error', 'Something went wrong from the API');
+        Get.snackbar('Error', 'Something went wrong from the API Cancelling');
+        return jsonDecode(response.body);
       }
       debugPrint('Internal Server error : ${response.body}');
       return jsonDecode(response.body);
