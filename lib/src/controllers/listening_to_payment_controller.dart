@@ -60,7 +60,7 @@ class ListeningToPaymentController extends GetxController {
             'Your CoinForbarter payment failed', Status.error);
 
         ///runcall back function
-        debugPrint('This Payment failed because it was terminated/cancelled.');
+        debugPrint('This Payment failed because it was Canceld/cancelled.');
         Get.snackbar('Payment failed', 'Payment was cancelled');
         timer.cancel();
       } else if (_selectCurrencyController.getStatus() == 'in progress') {

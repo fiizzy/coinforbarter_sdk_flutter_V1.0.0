@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Get.put(LockCurrencyController());
-    return GetMaterialApp(
-        // navigatorKey: Get.key,
+    return MaterialApp(
+        navigatorKey: coinForBarterNavigator(),
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,

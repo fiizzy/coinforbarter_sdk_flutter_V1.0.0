@@ -37,7 +37,7 @@ class CoinForBarterButton extends StatelessWidget {
           padding: MaterialStateProperty.all(EdgeInsets.zero),
         ),
         onPressed: () async {
-          coinForBarterInit(paymentConfig);
+          await coinForBarterInit(paymentConfig);
         },
         child: Container(
           color: color ?? MyStyles.primaryPurple,

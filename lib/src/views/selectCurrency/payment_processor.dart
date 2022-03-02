@@ -1,7 +1,7 @@
 import 'package:coinforbarter_sdk/coinforbarter.dart';
 import 'package:flutter/material.dart';
 
-void coinForBarterInit(PaymentConfig paymentConfig) async {
+Future<void> coinForBarterInit(PaymentConfig paymentConfig) async {
   final ServiceController _serviceController = Get.find();
   final GlobalizerController _globerlizerController = Get.find();
   final SelectCurrencyController _selectCurrencyController = Get.find();
