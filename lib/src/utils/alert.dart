@@ -7,20 +7,19 @@ showAlert(context) {
       Get.find();
   return showDialog<void>(
     context: context,
-    barrierDismissible: false, // user must tap button!
+    barrierDismissible: true, // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
-        title: const Text('AlertDialog Title'),
+        title: const Text('Terminate Transaction ?'),
         content: SingleChildScrollView(
           child: ListBody(
             children: const <Widget>[
-              Text('Terminate Transfer'),
-              Text('Would you like to terminate the transfer initiated ?'),
+              Text('Would you like to terminate the transaction initiated ?'),
             ],
           ),
         ),
         actions: <Widget>[
-          TextButton(
+          ElevatedButton(
             child: const Text('Terminate'),
             onPressed: () async {
               await _serviceController.cancelPayment();
