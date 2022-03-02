@@ -29,8 +29,6 @@ class AddressDetails extends StatelessWidget {
     String address = _lockCurrencyController.lockCurrencyresponse['data']
         ['addressInformation']['address'];
 
-    debugPrint(QRcode().getQRcode(currency, address, amount, network));
-
     return Card(
       child: Container(
         padding: const EdgeInsets.all(10),

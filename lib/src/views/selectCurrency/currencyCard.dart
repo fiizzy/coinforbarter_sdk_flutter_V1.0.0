@@ -33,7 +33,7 @@ class CurrencyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _selectCurrencyController.getCurrencies();
-    _serviceController.getCurrencyListings();
+    // _serviceController.getCurrencyListings();
     CompareCurrencies().compareCurrencies();
     networks.add(abbrevation);
     // Map toJsonMap = SetCurrencyController().initTojson();

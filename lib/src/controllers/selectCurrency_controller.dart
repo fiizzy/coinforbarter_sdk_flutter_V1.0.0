@@ -52,7 +52,7 @@ class SelectCurrencyController extends GetxController {
   //Get the customer: email address
   getCustomer() {
     customer = serviceController.paymentDetails['data']['customer'];
-    print(customer);
+    // print(customer);
     return customer;
   }
 
@@ -77,14 +77,14 @@ class SelectCurrencyController extends GetxController {
   //Get expiry of the payment
   getExpiryTime() {
     expiryTime = serviceController.paymentDetails['data']['expiresBy'];
-    print(expiryTime);
+    // print(expiryTime);
     return expiryTime;
   }
 
   //Get the payment Status
   getStatus() {
     status.value = serviceController.paymentDetails['data']['status'];
-    print(status);
+    // print(status);
     return status;
   }
 }

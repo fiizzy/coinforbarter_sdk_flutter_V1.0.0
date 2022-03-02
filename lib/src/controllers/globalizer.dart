@@ -12,6 +12,7 @@ class GlobalizerController extends GetxController {
   globalizerMethod(param) {
     paymentConfig = param;
     isTest = isAPIkeyTest(paymentConfig.publicKey);
-    debugPrint('The API test key is ${isAPIkeyTest(paymentConfig.publicKey)}');
+    debugPrint(
+        'Is publicKey a TestKey ? : ${isAPIkeyTest(paymentConfig.publicKey)}');
   }
 }
