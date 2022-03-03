@@ -24,7 +24,7 @@ class AddressDetails extends StatelessWidget {
     String currency =
         _setCurrencyController.setCurrencyResponse!['data']['currency'];
     String network = _selectCurrencyController.selectedNetwork.value;
-    print(_lockCurrencyController.lockCurrencyresponse['data']);
+    // print(_lockCurrencyController.lockCurrencyresponse['data']);
     String address = _lockCurrencyController.lockCurrencyresponse['data']
         ['addressInformation']['address'];
 

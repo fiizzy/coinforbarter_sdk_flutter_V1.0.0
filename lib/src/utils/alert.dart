@@ -4,11 +4,11 @@ import '../../coinforbarter_sdk.dart';
 showAlert(context) async {
   final ListeningToPaymentController listening_to_payment_controller =
       Get.find();
+
   return await showDialog<void>(
     context: context,
     barrierDismissible: true, // user must tap button!
     builder: (BuildContext context) {
-      ServiceController _serviceController = Get.find();
       return AlertDialog(
         title: const Text('Cancel Transaction ?'),
         content: SingleChildScrollView(
@@ -22,7 +22,7 @@ showAlert(context) async {
           ElevatedButton(
             child: const Text('Proceed'),
             onPressed: () async {
-              //  ServiceController _serviceController = Get.find();
+              ServiceController _serviceController = Get.find();
               await _serviceController.cancelPayment();
               listening_to_payment_controller.timer.cancel();
               Get.offAll(() => const PaymentResponse(message: 'cancelled'));

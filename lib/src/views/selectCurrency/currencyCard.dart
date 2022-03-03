@@ -11,8 +11,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class CurrencyCard extends StatelessWidget {
-  final SelectCurrencyController _selectCurrencyController =
-      Get.put(SelectCurrencyController());
+  final SelectCurrencyController _selectCurrencyController = Get.find();
   final ServiceController _serviceController = Get.find();
   final SetCurrencyController _setCurrencyController =
       Get.put(SetCurrencyController());
