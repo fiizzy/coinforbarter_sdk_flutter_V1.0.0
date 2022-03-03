@@ -1,5 +1,5 @@
 name: coinforbarter_sdk
-description: A new Flutter project.
+description: This is a simple SDK that allows you to integrate a cryptocurrency payment gateway in your flutter project.
 homepage: https://github.com/fiizzy/coinforbarter_sdk_flutter_V1.0.0
 version: 0.0.2
 
