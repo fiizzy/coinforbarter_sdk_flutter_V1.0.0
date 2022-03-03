@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../coinforbarter_sdk.dart';
 
-final ServiceController _serviceController = Get.find();
-
 showAlert(context) {
   final ListeningToPaymentController listening_to_payment_controller =
       Get.find();
@@ -23,6 +21,7 @@ showAlert(context) {
           ElevatedButton(
             child: const Text('Proceed'),
             onPressed: () async {
+              ServiceController _serviceController = Get.find();
               await _serviceController.cancelPayment();
               listening_to_payment_controller.timer.cancel();
               Get.offAll(() => const PaymentResponse(message: 'cancelled'));
