@@ -1,12 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/rendering.dart';
-import 'package:coinforbarter_sdk/src/controllers/globalizer.dart';
-import 'package:get/instance_manager.dart';
 import 'package:http/http.dart' as http;
-import 'package:coinforbarter_sdk/src/utils/route.dart';
-import 'package:get/get.dart';
 
-import '../../coinforbarter.dart';
+import '../../coinforbarter_sdk.dart';
 
 class Services {
   final GlobalizerController _globerlizerController =

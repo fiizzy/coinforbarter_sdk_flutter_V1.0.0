@@ -7,7 +7,6 @@ import 'package:coinforbarter_sdk/src/controllers/setCurrencyController.dart';
 import 'package:coinforbarter_sdk/src/styles/styles.dart';
 import 'package:coinforbarter_sdk/src/utils/alert.dart';
 import 'package:coinforbarter_sdk/src/utils/route.dart';
-import 'package:get/instance_manager.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 

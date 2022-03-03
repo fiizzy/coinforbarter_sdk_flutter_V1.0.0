@@ -9,7 +9,6 @@ import 'package:coinforbarter_sdk/src/utils/compareCurrencies.dart';
 import 'package:coinforbarter_sdk/src/views/dialog/dialog.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
 
 class CurrencyCard extends StatelessWidget {
   final SelectCurrencyController _selectCurrencyController =

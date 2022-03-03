@@ -1,9 +1,6 @@
 // ignore_for_file: file_names
+import 'package:coinforbarter_sdk/coinforbarter_sdk.dart';
 import 'package:flutter/material.dart';
-import 'package:coinforbarter_sdk/src/controllers/selectCurrency_controller.dart';
-import 'package:coinforbarter_sdk/src/controllers/serviceController.dart';
-import 'package:coinforbarter_sdk/src/views/selectCurrency/currencyCard.dart';
-import 'package:get/instance_manager.dart';
 
 class CompareCurrencies {
   final SelectCurrencyController _selectCurrencyController = Get.find();

@@ -1,6 +1,5 @@
 export "./src/views/coinforbarter_button.dart";
 export "./src/models/config.dart";
-export 'package:coinforbarter_sdk/coinforbarter.dart';
 export 'package:coinforbarter_sdk/src/controllers/counter_controller.dart';
 export 'package:coinforbarter_sdk/src/controllers/globalizer.dart';
 export 'package:coinforbarter_sdk/src/controllers/listening_to_payment_controller.dart';

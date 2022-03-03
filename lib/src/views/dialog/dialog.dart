@@ -6,7 +6,6 @@ import 'package:coinforbarter_sdk/src/controllers/selectCurrency_controller.dart
 import 'package:coinforbarter_sdk/src/controllers/serviceController.dart';
 import 'package:coinforbarter_sdk/src/styles/styles.dart';
 import 'package:coinforbarter_sdk/src/views/paymentPreview/paymentPreview.dart';
-import 'package:get/instance_manager.dart';
 import 'package:get/get.dart';
 
 Future<void> infoDialog(BuildContext context, Map setCurrencyResponse) async {
