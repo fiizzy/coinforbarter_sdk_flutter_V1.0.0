@@ -10,17 +10,17 @@ showAlert(context) {
     barrierDismissible: true, // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
-        title: const Text('Terminate Transaction ?'),
+        title: const Text('Cancel Transaction ?'),
         content: SingleChildScrollView(
           child: ListBody(
             children: const <Widget>[
-              Text('Would you like to terminate the transaction initiated ?'),
+              Text('Would you like to Cancel the transaction initiated ?'),
             ],
           ),
         ),
         actions: <Widget>[
           ElevatedButton(
-            child: const Text('Terminate'),
+            child: const Text('Cancel'),
             onPressed: () async {
               await _serviceController.cancelPayment();
               listening_to_payment_controller.timer.cancel();

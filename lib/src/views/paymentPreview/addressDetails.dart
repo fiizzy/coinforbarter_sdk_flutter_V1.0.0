@@ -108,7 +108,7 @@ class AddressDetails extends StatelessWidget {
                   color: MyStyles.faintRed,
                   child: Center(
                     child: Text(
-                      "TERMINATE",
+                      "Cancel",
                       style: MyStyles.bodyTextSmall,
                     ),
                   ),

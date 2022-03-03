@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:coinforbarter_sdk/coinforbarter.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,40 +12,59 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        //Include Get.key as the value of your navigatorKey likeso
-        navigatorKey: Get.key,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: ButtonPage());
-  }
-}
-
-class ButtonPage extends StatelessWidget {
-  final PaymentConfig newPayment = PaymentConfig(
-      publicKey: 'XXXXXXXX-XXXXXXXX-XXXXXXX',
-      txRef: 'Flutter final Reference 1',
-      amount: 0.1,
-      baseCurrency: 'ETH',
-      customer: 'JohnDoe@noemail.cooom',
-      customerFullName: 'John Amala Doe',
-      callback: myCallBackFunction);
-
-  ButtonPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-          child: CoinForBarterButton(
-              color: Colors.red,
-              textColor: Colors.white,
-              paymentConfig: newPayment)),
+      navigatorKey: coinForBarterNavigator(),
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const TheHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-myCallBackFunction(int a, String b, dynamic c, Status s) {
-  debugPrint('At the end of the day, The call back function works');
+class TheHomePage extends StatefulWidget {
+  const TheHomePage({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  State<TheHomePage> createState() => _TheHomePageState();
+}
+
+class _TheHomePageState extends State<TheHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    theCallBack(int a, String b, dynamic c, Status s) {
+      debugPrint('At the end of the day, The call back function works');
+    }
+
+    final PaymentConfig newPayment = PaymentConfig(
+        // publicKey: '1645778437579HPc1e4KJi13T0eQrSW3LP4lDkxpE1',
+        publicKey: 'XXXXX-XXXX-XXXX-XXXX',
+        txRef: 'Flutter final Reference 1',
+        amount: "150000",
+        baseCurrency: 'NGN',
+        customer: 'JohnDoe@noemail.cooom',
+        customerFullName: 'John Amala Doe',
+        callback: theCallBack);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[CoinForBarterButton(paymentConfig: newPayment)],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          await coinForBarterInit(newPayment);
+        },
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
 }

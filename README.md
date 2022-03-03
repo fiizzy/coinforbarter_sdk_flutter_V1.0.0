@@ -1,8 +1,6 @@
 # CoinForBarter SDK
 
-CoinForBarter Flutter SDK.
-
-## Getting Started
+### Getting Started
 
 This SDK allows you to recieve payments in cryptocurrency for your projects.
 
@@ -14,15 +12,17 @@ Follow these simple steps to start
    >
 3. Import the CoinForBarter SDK and follow the code example.
 
-> **IMPORTANT:**
+   - You can read more on how to integrate this SDK in your flutter app via this [medium post](https://medium.com/@obilaja/how-to-integrate-a-cryptocurrency-payment-gateway-in-your-flutter-app-9e97ca72d91e)
 
-To use CoinForBarter SDK, you must import `'package:coinforbarter_sdk/coinforbarter.dart';` in your `main.dart` file and set `navigatorKey: Get.key,` inside of your `MaterialApp()`
+#### Import the SDK
 
-> This is because CoinForBarter SDK depends on contextless state management which depends on the [GetX_package](https://pub.dev/packages/get).
+```dart
+import 'package:coinforbarter_sdk/coinforbarter.dart';
+```
 
-This however doesn't disturb any state managment package that you are using.
+#### Initialize the NavigatorKey in your MaterialApp
 
-> Your standard `main.dart` code then looks like this
+Under the hood, coinForBarter SDK depends on a contextless Navigation, so you have to provide a `coinForBarterNavigator()` to your `MaterialApp()`
 
 ```dart
 import 'package:flutter/material.dart';
@@ -35,12 +35,141 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //Include Get.key as the value of your navigatorKey likeso
-        navigatorKey: Get.key,
+      //Include coinForBarterNavigator as the value of your navigatorKey likeso
+        navigatorKey: coinForBarterNavigator(),
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: ButtonPage());
+  }
+}
+
+
+class ButtonPage extends StatelessWidget {
+
+  ButtonPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+          child: Text("Testing payments")),
+      );
+    }
+  }
+}
+```
+
+#### Initalize your PaymentConfig
+
+The `PaymentConfig()` object allows you provide a payload that contains most of your payment requests that the CoinForBarter API uses to process your payment transactions. The filed variables include
+
+- `publicKey`
+- `txRef`
+- `amount`
+- `baseCurrency`
+- `customer`
+- `customerFullName`
+- `callback`
+  - ##### The callback function
+    Your callback function should recieve 4 main arguments which are going to be passed through into your function when a payment has been processed. The arguments are in this order
+    - `statusCode`
+      - Returns the status code of the payment after it has ended
+        >
+    - `message`
+      - Returns a standard coinForBarter message
+        >
+    - `data`
+      - This provides more details about the transaction.
+        >
+    - `Status`
+      - An enum that returns either `Status.success`, `Status.error`, `Status.cancelled`
+
+The code from above should look something like this when your `paymentConfig()` is set:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:coinforbarter_sdk/coinforbarter.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      //Include coinForBarterNavigator as the value of your navigatorKey likeso
+        navigatorKey: coinForBarterNavigator(),
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: ButtonPage());
+  }
+}
+
+
+class ButtonPage extends StatelessWidget {
+  final PaymentConfig newPayment = PaymentConfig(
+      publicKey: 'XXXXXXXX-XXXXXXXX-XXXXXXX',
+      txRef: 'Flutter final Reference 1',
+      amount: 0.1,
+      baseCurrency: 'ETH',
+      customer: 'JohnDoe@noemail.cooom',
+      customerFullName: 'John Amala Doe',
+      callback: myCallBackFunction);
+
+  ButtonPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+          child: Text("Testing payments")),
+      );
+    }
+}
+
+myCallBackFunction(int statusCode, String data, String message, Status status) {
+  debugPrint('At the end of the day, The call back function works');
+}
+```
+
+#### Starting a Payment
+
+Now that we have our payment config already setup, we are noe ready to connect to the coinForbarter API. We can initialize payment by two major ways:
+
+- `CoinForBarterButton()`
+  - The provides you a button that allows you pass in a `color`, `textColor` and your `PaymentConfig()` object.
+    >
+- `coinForBarterInit()`
+  - This is a function of type `Future<void>` that gives you more control to use the payment API however you want to call it.
+
+Example below:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:coinforbarter_sdk/coinforbarter.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      //Include coinForBarterNavigator as the value of your navigatorKey likeso
+        navigatorKey: coinForBarterNavigator(),
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
@@ -74,12 +203,31 @@ class ButtonPage extends StatelessWidget {
   }
 }
 
-myCallBackFunction(int a, String b, dynamic c, Status s) {
+myCallBackFunction(int statusCode, String data, String message, Status status) {
   debugPrint('At the end of the day, The call back function works');
 }
 ```
 
+or call the init function in a button like so:
+
+```dart
+ElevatedButton(
+  child:Text(data),
+  onTap: () async {
+    await coinForBarterInit();
+  }
+);
+```
+
+Once the function is called, or the button pressed, CoinForBarter handles everything there on.
+
+#### Error Handling
+
+Errors are logged to the console, and sometimes also logged on the app in form of drop downs.
+
 ## Want to contribute
+
+You can read more about [CoinForBarter](https://coinforbarter.com) or the [official docs here](https://developers.coinforbarter.com)
 
 Join the CoinForBarter Dev Slack Community [here](coinforbarter-fgc7751.slack.com)
 

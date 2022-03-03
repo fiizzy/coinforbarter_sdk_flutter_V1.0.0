@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class PaymentConfig {
   String publicKey;
   String txRef;
@@ -9,7 +11,8 @@ class PaymentConfig {
   String customerFullName;
 
   ///This receives a Status code, message, Data (By the user) and Payment Status enum to be used when the payment ends
-  Function(int statuscode, String message, dynamic data, Status)? callback;
+  Function(int statuscode, String message, String data, Status paymentStatus)?
+      callback;
 
   PaymentConfig(
       {required this.publicKey,
@@ -22,7 +25,4 @@ class PaymentConfig {
       this.customerPhoneNumber});
 }
 
-enum Status {
-  success,
-  error,
-}
+enum Status { success, error, cancelled }
