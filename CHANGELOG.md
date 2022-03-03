@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## 1.1.1
+
+- Optimized pub serviceController
+
+>
+
+- Fixed static analysis
+
 ## 1.1.0
 
 Changes:
