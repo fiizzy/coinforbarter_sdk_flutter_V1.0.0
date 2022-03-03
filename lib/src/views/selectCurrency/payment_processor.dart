@@ -6,7 +6,7 @@ Future<void> coinForBarterInit(PaymentConfig paymentConfig) async {
   // final GlobalizerController _globerlizerController = Get.find();
   final SelectCurrencyController _selectCurrencyController = Get.find();
   //making the paymentconfig globally accessible
-  _globerlizerController.globalizerMethod(paymentConfig);
+  GlobalizerController.globalizerMethod(paymentConfig);
   await _serviceController.getCurrencyListings();
 
   await _serviceController.runPostData(GlobalizerController.paymentConfig);
