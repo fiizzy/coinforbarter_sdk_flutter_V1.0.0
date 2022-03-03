@@ -57,7 +57,7 @@ class PaymentResponse extends StatelessWidget {
                         200,
                         'payment cancelled',
                         'Your CoinForbarter payment was cancelled',
-                        Status.success);
+                        Status.cancelled);
                   } else {
                     _globalizerController.paymentConfig.callback!(
                         200,
