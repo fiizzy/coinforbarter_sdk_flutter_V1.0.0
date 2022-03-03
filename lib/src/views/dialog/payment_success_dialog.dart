@@ -12,7 +12,7 @@ class PaymentResponse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalizerController _globalizerController = Get.find();
+    // final GlobalizerController GlobalizerController = Get.find();!
 
     return Scaffold(
       body: Center(
@@ -47,19 +47,19 @@ class PaymentResponse extends StatelessWidget {
             ElevatedButton(
                 onPressed: () {
                   if (message == 'success') {
-                    _globalizerController.paymentConfig.callback!(
+                    GlobalizerController.paymentConfig!.callback!(
                         200,
                         'payment successful',
                         'Your CoinForbarter payment was successful',
                         Status.success);
                   } else if (message == 'cancelled') {
-                    _globalizerController.paymentConfig.callback!(
+                    GlobalizerController.paymentConfig!.callback!(
                         200,
                         'payment cancelled',
                         'Your CoinForbarter payment was cancelled',
                         Status.cancelled);
                   } else {
-                    _globalizerController.paymentConfig.callback!(
+                    GlobalizerController.paymentConfig!.callback!(
                         200,
                         'payment failed',
                         'Your CoinForbarter payment failed',

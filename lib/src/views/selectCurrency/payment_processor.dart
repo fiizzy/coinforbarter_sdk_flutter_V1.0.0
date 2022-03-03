@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 Future<void> coinForBarterInit(PaymentConfig paymentConfig) async {
   final ServiceController _serviceController = Get.find();
-  final GlobalizerController _globerlizerController = Get.find();
+  // final GlobalizerController _globerlizerController = Get.find();
   final SelectCurrencyController _selectCurrencyController = Get.find();
   //making the paymentconfig globally accessible
   _globerlizerController.globalizerMethod(paymentConfig);
   await _serviceController.getCurrencyListings();
 
-  await _serviceController.runPostData(_globerlizerController.paymentConfig);
+  await _serviceController.runPostData(GlobalizerController.paymentConfig);
   debugPrint(
       "The statusCode after posting payment config is: ${_serviceController.postDataStatusCode}");
 

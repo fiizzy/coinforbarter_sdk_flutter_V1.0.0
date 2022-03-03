@@ -28,8 +28,8 @@ class _PaymentPreviewState extends State<PaymentPreview> {
     //We initialize all controllers for later use
     final SelectCurrencyController _selectCurrencyController = Get.find();
     final LockCurrencyController _lockCurrencyController = Get.find();
-    final GlobalizerController _globalizerController = Get.find();
-    debugPrint(_globalizerController.paymentConfig.publicKey);
+    // final GlobalizerController _globalizerController = Get.find();
+    debugPrint(GlobalizerController.paymentConfig!.publicKey);
     final ListeningToPaymentController _listeningToPaymentController =
         Get.put(ListeningToPaymentController());
 

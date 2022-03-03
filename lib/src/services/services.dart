@@ -5,22 +5,22 @@ import 'package:http/http.dart' as http;
 import '../../coinforbarter_sdk.dart';
 
 class Services {
-  final GlobalizerController _globerlizerController =
-      Get.put(GlobalizerController());
+  // final GlobalizerController GlobalizerController =
+  //     Ge!t.put(GlobalizerController());
 
   ///This posts the payment config to the server and return a response
   Future postData() async {
     final ServiceController _serviceController = Get.find();
-    // debugPrint('${_globerlizerController.paymentConfig.customerPhoneNumber}');
+    // debugPrint('${GlobalizerController.paymentConfig!.customerPhoneNumber}');
     dynamic response;
     Map filteredConfig = {
-      "txRef": _globerlizerController.paymentConfig.txRef,
-      "amount": _globerlizerController.paymentConfig.amount,
-      "baseCurrency": _globerlizerController.paymentConfig.baseCurrency,
-      "customer": _globerlizerController.paymentConfig.customer,
-      "customerFullName": _globerlizerController.paymentConfig.customerFullName,
+      "txRef": GlobalizerController.paymentConfig!.txRef,
+      "amount": GlobalizerController.paymentConfig!.amount,
+      "baseCurrency": GlobalizerController.paymentConfig!.baseCurrency,
+      "customer": GlobalizerController.paymentConfig!.customer,
+      "customerFullName": GlobalizerController.paymentConfig!.customerFullName,
       // "customerPhoneNumber":
-      //     _globerlizerController.paymentConfig.customerPhoneNumber ??
+      //     GlobalizerController.paymentConfig!.customerPhoneNumber ??
       //         'No Phone Number',
       "meta": {"from": "Flutter SDK Version 1.0.1"}
     };
@@ -30,7 +30,7 @@ class Services {
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':
-              'Bearer ${_globerlizerController.paymentConfig.publicKey}',
+              'Bearer ${GlobalizerController.paymentConfig!.publicKey}',
         },
         body: jsonEncode(filteredConfig),
       );
@@ -71,7 +71,7 @@ class Services {
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':
-              'Bearer ${_globerlizerController.paymentConfig.publicKey}',
+              'Bearer ${GlobalizerController.paymentConfig!.publicKey}',
         },
       );
       //set the statusCode inside of the controller.
@@ -141,7 +141,7 @@ class Services {
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
             'Authorization':
-                'Bearer ${_globerlizerController.paymentConfig.publicKey}',
+                'Bearer ${GlobalizerController.paymentConfig!.publicKey}',
           },
           body: jsonEncode(toJsonMap));
       //Handling Status codes Error Via Snackbar
@@ -174,7 +174,7 @@ class Services {
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':
-              'Bearer ${_globerlizerController.paymentConfig.publicKey}',
+              'Bearer ${GlobalizerController.paymentConfig!.publicKey}',
         },
       );
       if (response.statusCode == 201 || response.statusCode == 200) {
@@ -209,7 +209,7 @@ class Services {
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization':
-              'Bearer ${_globerlizerController.paymentConfig.publicKey}',
+              'Bearer ${GlobalizerController.paymentConfig!.publicKey}',
         },
       );
       if (response.statusCode == 201 || response.statusCode == 200) {

@@ -29,8 +29,8 @@ class CoinForBarterButton extends StatelessWidget {
     Get.put(LockCurrencyController());
     final SelectCurrencyController _selectCurrencyController =
         Get.put(SelectCurrencyController());
-    final GlobalizerController _globerlizerController =
-        Get.put(GlobalizerController());
+    // final GlobalizerController _globerlizerController =
+    //     Get.put(GlobalizerController());
 
     return ElevatedButton(
         style: ButtonStyle(
