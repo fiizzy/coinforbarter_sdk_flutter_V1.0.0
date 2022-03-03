@@ -23,10 +23,10 @@ class CoinForBarterButton extends StatelessWidget {
     required this.paymentConfig,
   }) : super(key: key);
 
-  final _serviceController = Get.put(ServiceController());
   @override
   Widget build(BuildContext context) {
     GlobalizerController.globalizerMethod(paymentConfig);
+    final _serviceController = Get.put(ServiceController());
     Get.put(LockCurrencyController());
     final SelectCurrencyController _selectCurrencyController =
         Get.put(SelectCurrencyController());

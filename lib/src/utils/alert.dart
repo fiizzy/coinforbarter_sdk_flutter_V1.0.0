@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import '../../coinforbarter_sdk.dart';
 
 showAlert(context) {
-  final ServiceController _serviceController = Get.find();
   final ListeningToPaymentController listening_to_payment_controller =
       Get.find();
   return showDialog<void>(
     context: context,
     barrierDismissible: true, // user must tap button!
     builder: (BuildContext context) {
+      final ServiceController _serviceController = Get.find();
+
       return AlertDialog(
         title: const Text('Cancel Transaction ?'),
         content: SingleChildScrollView(
