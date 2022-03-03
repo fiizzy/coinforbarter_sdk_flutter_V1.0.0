@@ -8,7 +8,7 @@ class ServiceController extends GetxController {
   Rx<bool> isLoading = false.obs;
   dynamic postDataResponse;
   dynamic paymentDetails;
-  String? paymentID;
+  static String? paymentID;
   List currencyListings = [];
   List cancelPaymentResponse = [];
   final Services c4bservices = Services();

@@ -21,8 +21,9 @@ showAlert(context) {
           ElevatedButton(
             child: const Text('Proceed'),
             onPressed: () async {
-              ServiceController _serviceController = Get.find();
-              await _serviceController.cancelPayment();
+              ServiceController.paymentID;
+              // ServiceController _serviceController = Get.find();
+              await ServiceController().cancelPayment();
               listening_to_payment_controller.timer.cancel();
               Get.offAll(() => const PaymentResponse(message: 'cancelled'));
             },
