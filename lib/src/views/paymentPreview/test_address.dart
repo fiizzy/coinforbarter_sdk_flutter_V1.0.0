@@ -117,8 +117,8 @@ class TestAddressCard extends StatelessWidget {
                   ),
                 ),
               ),
-              onTap: () {
-                showAlert(context);
+              onTap: () async {
+                await showAlert(context);
               },
             ),
           ],

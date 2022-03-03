@@ -112,8 +112,8 @@ class AddressDetails extends StatelessWidget {
                     ),
                   ),
                 ),
-                onTap: () {
-                  showAlert(context);
+                onTap: () async {
+                  await showAlert(context);
                 },
               ),
             )
