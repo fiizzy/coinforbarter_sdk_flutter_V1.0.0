@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../coinforbarter.dart';
+import '../../coinforbarter_sdk.dart';
 
 showAlert(context) {
   final ServiceController _serviceController = Get.find();

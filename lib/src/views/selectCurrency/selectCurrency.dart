@@ -1,11 +1,6 @@
 // ignore_for_file: file_names
+import 'package:coinforbarter_sdk/coinforbarter_sdk.dart';
 import 'package:flutter/material.dart';
-import 'package:coinforbarter_sdk/src/controllers/selectCurrency_controller.dart';
-import 'package:coinforbarter_sdk/src/styles/styles.dart';
-import 'package:coinforbarter_sdk/src/utils/compareCurrencies.dart';
-import 'package:coinforbarter_sdk/src/views/selectCurrency/productCard.dart';
-import 'package:coinforbarter_sdk/src/views/selectCurrency/securedByCoinfForBarter.dart';
-import 'package:get/instance_manager.dart';
 
 class SelectCurrency extends StatelessWidget {
   SelectCurrency({Key? key}) : super(key: key);

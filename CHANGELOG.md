@@ -1,6 +1,6 @@
 # CHANGELOG.md
 
-## 0.0.2
+## 1.1.0
 
 Changes:
 
@@ -11,7 +11,6 @@ Changes:
 - [README.md](README.md) now shows a full integration example.
   >
 - Payment now fully supports test keys gotten from www.coinforbarter.com
-  >
 - All cryptocurrencies now have corresponding icons
   >
 - Customizable button, color and text color

@@ -1,4 +1,4 @@
-import 'package:coinforbarter_sdk/coinforbarter.dart';
+import 'package:coinforbarter_sdk/coinforbarter_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
