@@ -8,7 +8,7 @@ class ServiceController extends GetxController {
   Rx<bool> isLoading = false.obs;
   dynamic postDataResponse;
   dynamic paymentDetails;
-  static String? paymentID;
+  String? paymentID;
   List currencyListings = [];
   List cancelPaymentResponse = [];
   final Services c4bservices = Services();
@@ -60,7 +60,7 @@ class ServiceController extends GetxController {
   Future cancelPayment() async {
     try {
       isLoading.value = true;
-      Map cancelPayments = await c4bservices.cancelPayments(paymentID);
+      await c4bservices.cancelPayments(paymentID);
       // currencyListings = listingsMap['data'];
       isLoading.value = false;
     } catch (erorr) {}

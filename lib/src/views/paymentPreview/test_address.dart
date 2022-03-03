@@ -106,25 +106,20 @@ class TestAddressCard extends StatelessWidget {
               height: 50,
             ),
             InkWell(
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                padding: const EdgeInsets.all(10),
+                color: MyStyles.faintRed,
+                child: Center(
+                  child: Text(
+                    "Cancel",
+                    style: MyStyles.bodyTextSmall,
+                  ),
+                ),
+              ),
               onTap: () {
                 showAlert(context);
               },
-              child: InkWell(
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.all(10),
-                  color: MyStyles.faintRed,
-                  child: Center(
-                    child: Text(
-                      "Cancel",
-                      style: MyStyles.bodyTextSmall,
-                    ),
-                  ),
-                ),
-                onTap: () {
-                  showAlert(context);
-                },
-              ),
             ),
           ],
         ),
