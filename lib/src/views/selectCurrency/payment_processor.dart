@@ -1,8 +1,13 @@
 import 'package:coinforbarter_sdk/coinforbarter_sdk.dart';
+import 'package:coinforbarter_sdk/src/controllers/services_extension.dart';
 import 'package:flutter/material.dart';
 
 Future<void> coinForBarterInit(PaymentConfig paymentConfig) async {
-  final ServiceController _serviceController = Get.find();
+  GlobalizerController.globalizerMethod(paymentConfig);
+  final ServiceController _serviceController = Get.put(ServiceController());
+  Get.put(LockCurrencyController());
+  Get.put(SelectCurrencyController());
+  ServiceExtension _serviceExtension = Get.find();
 
   final SelectCurrencyController _selectCurrencyController = Get.find();
   //making the paymentconfig globally accessible
@@ -21,7 +26,7 @@ Future<void> coinForBarterInit(PaymentConfig paymentConfig) async {
   } else if (_serviceController.postDataStatusCode == 400) {
     Get.snackbar('Bad Request', 'Check your Payment Config object');
 
-    _serviceController.isLoading.value = false;
+    _serviceExtension.isLoading.value = false;
     // throw Exception(
     //     ["A value in your PaymentConfig() object is not correctly set"]);
   } else {
@@ -29,6 +34,6 @@ Future<void> coinForBarterInit(PaymentConfig paymentConfig) async {
     CoinForBarterButton.businessName =
         _selectCurrencyController.getBusinessName();
     Get.to(() => SelectCurrency());
-    _serviceController.isLoading.value = false;
+    _serviceExtension.isLoading.value = false;
   }
 }

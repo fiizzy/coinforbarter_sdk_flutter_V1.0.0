@@ -1,4 +1,5 @@
 import 'package:coinforbarter_sdk/src/controllers/lock_currency_controller.dart';
+import 'package:coinforbarter_sdk/src/controllers/services_extension.dart';
 import 'package:coinforbarter_sdk/src/views/selectCurrency/payment_processor.dart';
 import 'package:flutter/material.dart';
 import 'package:coinforbarter_sdk/src/controllers/globalizer.dart';
@@ -25,11 +26,8 @@ class CoinForBarterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GlobalizerController.globalizerMethod(paymentConfig);
-    final ServiceController _serviceController = Get.put(ServiceController());
-    Get.put(LockCurrencyController());
-    final SelectCurrencyController _selectCurrencyController =
-        Get.put(SelectCurrencyController());
+    final ServiceExtension _serviceExtension = Get.put(ServiceExtension());
+
     // final GlobalizerController _globerlizerController =
     //     Get.put(GlobalizerController());
 
@@ -38,6 +36,7 @@ class CoinForBarterButton extends StatelessWidget {
           padding: MaterialStateProperty.all(EdgeInsets.zero),
         ),
         onPressed: () async {
+          _serviceExtension.isLoading.value = true;
           await coinForBarterInit(paymentConfig);
         },
         child: Container(
@@ -53,7 +52,7 @@ class CoinForBarterButton extends StatelessWidget {
                   color: textColor ?? MyStyles.white,
                 ),
                 MyStyles.horizontalSpaceZero,
-                Obx(() => !_serviceController.isLoading.value
+                Obx(() => !_serviceExtension.isLoading.value
                     ? Text('Pay with CoinForBarterButton',
                         style: TextStyle(color: textColor ?? MyStyles.white))
                     : const CircularProgressIndicator(
