@@ -80,6 +80,13 @@ class AddressDetails extends StatelessWidget {
             Image.network(
               QRcode().getQRcode(currency, address, amount, network),
               height: 200,
+              errorBuilder: (context, object, stacktrace) {
+                return Container(
+                  padding: const EdgeInsets.all(70),
+                  child: const Text(
+                      "Unable to get QR code. Copy the address instead"),
+                );
+              },
               // loadingBuilder: (a, b, c) {
               //   return const CircularProgressIndicator();
               // },

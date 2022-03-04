@@ -23,6 +23,17 @@ class PaymentPreview extends StatefulWidget {
 }
 
 class _PaymentPreviewState extends State<PaymentPreview> {
+  final ListeningToPaymentController _listeningToPaymentController =
+      Get.put(ListeningToPaymentController());
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    //A method called every 30s to get a payment response from the server
+    _listeningToPaymentController.statusCheker();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     //We initialize all controllers for later use
@@ -30,8 +41,6 @@ class _PaymentPreviewState extends State<PaymentPreview> {
     final LockCurrencyController _lockCurrencyController = Get.find();
     // final GlobalizerController _globalizerController = Get.find();
     debugPrint(GlobalizerController.paymentConfig!.publicKey);
-    final ListeningToPaymentController _listeningToPaymentController =
-        Get.put(ListeningToPaymentController());
 
     //This gets the expiry time sent from the API in UTC format
     String getExpiryTime = _selectCurrencyController.getExpiryTime();
@@ -42,9 +51,6 @@ class _PaymentPreviewState extends State<PaymentPreview> {
     //Converting to millisecond since epoch just so our countdown plugin can read it in seconds.
     int endTime =
         DateTime.now().millisecondsSinceEpoch + 1000 * countDownInSeconds;
-
-    //A method called every 30s to get a payment response from the server
-    _listeningToPaymentController.statusCheker();
 
     return WillPopScope(
       onWillPop: () async {

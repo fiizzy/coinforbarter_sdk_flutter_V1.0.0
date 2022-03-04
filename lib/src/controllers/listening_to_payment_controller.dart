@@ -57,8 +57,7 @@ class ListeningToPaymentController extends GetxController {
             'This Payment failed because the time expired or it was cancelled');
         Get.snackbar('Payment failed', 'Time Expired');
         timer.cancel();
-      } else if (_selectCurrencyController.getStatus() == 'cancelled' ||
-          countDownValue == 0) {
+      } else if (_selectCurrencyController.getStatus() == 'cancelled') {
         //Use Get.off to avoid memory leakage
         Get.offAll(() => const PaymentResponse(message: 'error'));
         Get.snackbar('Payment Cancelled', 'This payment was cancelled');
@@ -68,7 +67,6 @@ class ListeningToPaymentController extends GetxController {
 
         ///runcall back function
         debugPrint('This Payment failed because it was Cancelled/cancelled.');
-        Get.snackbar('Payment failed', 'Payment was cancelled');
         timer.cancel();
       } else if (_selectCurrencyController.getStatus() == 'in progress') {
         //do nothing
