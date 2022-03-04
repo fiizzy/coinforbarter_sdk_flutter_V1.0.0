@@ -7,6 +7,8 @@ Future<void> coinForBarterInit(PaymentConfig paymentConfig) async {
   final ServiceController _serviceController = Get.put(ServiceController());
   Get.put(LockCurrencyController());
   Get.put(SelectCurrencyController());
+  Get.put(ServiceExtension());
+
   ServiceExtension _serviceExtension = Get.find();
 
   final SelectCurrencyController _selectCurrencyController = Get.find();
