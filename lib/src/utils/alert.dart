@@ -26,6 +26,8 @@ showAlert(context) async {
               await _serviceController.cancelPayment();
               listening_to_payment_controller.timer.cancel();
               Get.offAll(() => const PaymentResponse(message: 'cancelled'));
+              debugPrint(
+                  'This Payment failed because it was Cancelled/cancelled.');
             },
           ),
         ],
