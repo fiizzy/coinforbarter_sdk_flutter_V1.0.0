@@ -37,6 +37,8 @@ class ListeningToPaymentController extends GetxController {
           Status.success,
         );
 
+        timer.cancel();
+
         debugPrint('This payment was successful! ');
       } else if (_selectCurrencyController.getStatus() == 'error' ||
           countDownValue == 0) {
