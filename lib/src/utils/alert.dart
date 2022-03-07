@@ -1,9 +1,11 @@
+import 'package:coinforbarter_sdk/src/utils/loader.dart';
 import 'package:flutter/material.dart';
 import '../../coinforbarter_sdk.dart';
 
 showAlert(context) async {
   final ListeningToPaymentController listening_to_payment_controller =
       Get.find();
+  ServiceController _serviceController = Get.find();
 
   return await showDialog<void>(
     context: context,
@@ -19,17 +21,24 @@ showAlert(context) async {
           ),
         ),
         actions: <Widget>[
-          ElevatedButton(
-            child: const Text('Proceed'),
-            onPressed: () async {
-              ServiceController _serviceController = Get.find();
-              await _serviceController.cancelPayment();
-              listening_to_payment_controller.timer.cancel();
-              Get.offAll(() => const PaymentResponse(message: 'cancelled'));
-              debugPrint(
-                  'This Payment failed because it was Cancelled/cancelled.');
-            },
-          ),
+          Obx(() => ElevatedButton(
+                child: _serviceController.isLoading.value
+                    ? loader()
+                    : const Text('Proceed'),
+                onPressed: _serviceController.isLoading.value
+                    ? () {}
+                    : () async {
+                        _serviceController.isLoading.value = true;
+                        await _serviceController.cancelPayment();
+                        listening_to_payment_controller.timer.cancel();
+                        _serviceController.isLoading.value = false;
+
+                        Get.offAll(
+                            () => const PaymentResponse(message: 'cancelled'));
+                        debugPrint(
+                            'This Payment failed because it was Cancelled/cancelled.');
+                      },
+              )),
         ],
       );
     },

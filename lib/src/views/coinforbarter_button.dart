@@ -1,13 +1,8 @@
-import 'package:coinforbarter_sdk/src/controllers/lock_currency_controller.dart';
 import 'package:coinforbarter_sdk/src/controllers/services_extension.dart';
 import 'package:coinforbarter_sdk/src/views/selectCurrency/payment_processor.dart';
 import 'package:flutter/material.dart';
-import 'package:coinforbarter_sdk/src/controllers/globalizer.dart';
-import 'package:coinforbarter_sdk/src/controllers/selectCurrency_controller.dart';
-import 'package:coinforbarter_sdk/src/controllers/serviceController.dart';
 import 'package:coinforbarter_sdk/src/models/config.dart';
 import 'package:coinforbarter_sdk/src/styles/styles.dart';
-import 'package:coinforbarter_sdk/src/views/selectCurrency/selectCurrency.dart';
 import 'package:get/get.dart';
 
 // ignore: must_be_immutable
@@ -36,6 +31,7 @@ class CoinForBarterButton extends StatelessWidget {
           padding: MaterialStateProperty.all(EdgeInsets.zero),
         ),
         onPressed: () async {
+          //The other loading value is set to false inside of the function below
           _serviceExtension.isLoading.value = true;
           await coinForBarterInit(paymentConfig);
         },

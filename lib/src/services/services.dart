@@ -221,7 +221,10 @@ class Services {
         Get.snackbar('404 Error', 'Check the endpoint again');
         return jsonDecode(response.body);
       } else {
-        Get.snackbar('Error', 'Something went wrong from the API Cancelling');
+        Get.snackbar('Error', 'Something went wrong from the API Cancelling ');
+        debugPrint(
+            'Cant cancel payment from server : ${response.statusCode} ${response.body}');
+
         return jsonDecode(response.body);
       }
       debugPrint('Internal Server error : ${response.body}');

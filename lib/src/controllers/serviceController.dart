@@ -63,6 +63,8 @@ class ServiceController extends GetxController {
       await c4bservices.cancelPayments(paymentID);
       // currencyListings = listingsMap['data'];
       isLoading.value = false;
-    } catch (erorr) {}
+    } catch (erorr) {
+      debugPrint("The cancel payment had an error $erorr");
+    }
   }
 }

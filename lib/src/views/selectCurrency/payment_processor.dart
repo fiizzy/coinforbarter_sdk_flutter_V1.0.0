@@ -1,21 +1,21 @@
 import 'package:coinforbarter_sdk/coinforbarter_sdk.dart';
-import 'package:coinforbarter_sdk/src/controllers/services_extension.dart';
 import 'package:flutter/material.dart';
 
+///This function connect directly to the coinforbarter API
+///and initiate your payment with the payment config provided.
 Future<void> coinForBarterInit(PaymentConfig paymentConfig) async {
   GlobalizerController.globalizerMethod(paymentConfig);
   final ServiceController _serviceController = Get.put(ServiceController());
   Get.put(LockCurrencyController());
   Get.put(SelectCurrencyController());
   Get.put(ServiceExtension());
-
-  ServiceExtension _serviceExtension = Get.find();
-
+  final ServiceExtension _serviceExtension = Get.find();
   final SelectCurrencyController _selectCurrencyController = Get.find();
-  //making the paymentconfig globally accessible
-  // GlobalizerController.globalizerMethod(paymentConfig);
+
+  //Get supported currencies from your APIs.
   await _serviceController.getCurrencyListings();
 
+  //
   await _serviceController.runPostData(GlobalizerController.paymentConfig);
   debugPrint(
       "The statusCode after posting payment config is: ${_serviceController.postDataStatusCode}");

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+///This is your payload that would be used to initialize all of your payments.
+///Ensure to provide all required fields to avoid errors from the server.
 class PaymentConfig {
   String publicKey;
   String txRef;
