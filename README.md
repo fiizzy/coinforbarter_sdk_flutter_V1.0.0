@@ -14,6 +14,16 @@ Follow these simple steps to start
 
    - You can read more on how to integrate this SDK in your flutter app via this [medium post](https://medium.com/@obilaja/how-to-integrate-a-cryptocurrency-payment-gateway-in-your-flutter-app-9e97ca72d91e)
 
+#### Install CoinForBarter
+
+Add the following line to your pubspec.yaml file.
+
+```dart
+dependencies: coinforbarter_sdk: ^1.1.2
+```
+
+_You are advised to use the latest version of the SDK for the best experience._
+
 #### Import the SDK
 
 ```dart
