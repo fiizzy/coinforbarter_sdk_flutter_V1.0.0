@@ -32,6 +32,11 @@ class PaymentResponse extends StatelessWidget {
                         : const Icon(Icons.cached_rounded,
                             color: Colors.red, size: 60)),
             MyStyles.verticalSpaceZero,
+            message != 'error'
+                ? Container()
+                : const Text(
+                    "The payment was cancelled because \n the currency has a down time. \n Kindly try again with another currency. "),
+            MyStyles.verticalSpaceZero,
             message == 'success'
                 ? const Text(
                     'Payment successful',
@@ -76,8 +81,10 @@ class PaymentResponse extends StatelessWidget {
                   child: Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text('Continue', style: TextStyle(color: Colors.white))
+                      children: [
+                        Text(
+                            '${message == 'success' ? 'Continue' : 'Try again'}',
+                            style: TextStyle(color: Colors.white))
                       ],
                     ),
                   ),

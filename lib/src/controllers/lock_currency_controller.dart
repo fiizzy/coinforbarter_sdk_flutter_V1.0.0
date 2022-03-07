@@ -6,6 +6,7 @@ class LockCurrencyController extends GetxController {
   final ServiceController _serviceController = Get.find();
   Map lockCurrencyresponse = {}.obs;
   Rx<bool> isLoading = false.obs;
+  int? statusCode;
 
 //Call lock currency service
 

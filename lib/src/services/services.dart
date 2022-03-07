@@ -166,6 +166,8 @@ class Services {
 
   //Lock currency inorder to get the fees especially.
   Future lockCurrency(paymentID) async {
+    final LockCurrencyController _lockCurrencyController = Get.find();
+
     dynamic response;
     try {
       response = await http.patch(
@@ -177,6 +179,8 @@ class Services {
               'Bearer ${GlobalizerController.paymentConfig!.publicKey}',
         },
       );
+      //SET THE LOCK RESPONSE STATUSCODE IN ITS CONTROLLERS
+      _lockCurrencyController.statusCode = response.statusCode;
       if (response.statusCode == 201 || response.statusCode == 200) {
         return jsonDecode(response.body);
       } else if (response.statusCode == 401) {
@@ -190,12 +194,19 @@ class Services {
 
         Get.snackbar(
             'Error', 'Something went wrong from the API locking currency');
+        debugPrint(
+            'Something went wrong from the API locking currency and the status code is ${response.statusCode} and body :${response.body} ');
+
         return jsonDecode(response.body);
       }
       // print(jsonDecode(response.body));
       return jsonDecode(response.body);
     } catch (erorr) {
       Get.snackbar('Error', 'Error setCurrency trying');
+
+      //SET THE LOCK RESPONSE STATUSCODE IN ITS CONTROLLERS
+      _lockCurrencyController.statusCode = response.statusCode;
+
       return response;
     }
   }
