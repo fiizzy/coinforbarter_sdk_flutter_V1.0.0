@@ -9,7 +9,8 @@ showAlert(context) async {
 
   return await showDialog<void>(
     context: context,
-    barrierDismissible: true, // user must tap button!
+    barrierDismissible: false,
+    // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
         title: const Text('Cancel Transaction ?'),
@@ -21,6 +22,16 @@ showAlert(context) async {
           ),
         ),
         actions: <Widget>[
+          InkWell(
+              child: const Text("Cancel"),
+              onTap: _serviceController.isLoading.value
+                  ? () {}
+                  : () async {
+                      Navigator.pop(context);
+                    }),
+          SizedBox(
+            width: 20,
+          ),
           Obx(() => ElevatedButton(
                 child: _serviceController.isLoading.value
                     ? loader()
