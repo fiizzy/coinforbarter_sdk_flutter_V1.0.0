@@ -42,7 +42,7 @@ class AddressDetails extends StatelessWidget {
                     const Text('You are to transfer'),
                     MyStyles.horizontalSpaceZero,
                     Text(
-                      '$amount $currency}',
+                      '$amount $currency',
                       style: MyStyles.bodyTextBold,
                     ),
                     Text(' on $network network'),
