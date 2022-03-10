@@ -1,5 +1,11 @@
 # CHANGELOG.md
 
+## 1.1.3
+
+- Moved all staging to live environment
+- Users can now make live payments
+- UI Fixes
+
 ## 1.1.2
 
 - Refactored code to cleaner style

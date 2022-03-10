@@ -17,6 +17,15 @@ class SelectCurrency extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Select Currency"),
           backgroundColor: MyStyles.primaryPurple,
+          leading: InkWell(
+              child: const Icon(
+                Icons.chevron_left,
+                color: Colors.white,
+                size: 30,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              }),
 
           //For now, payment can not be cancel from the server.
           //So this will be uncommented when the API stops returning 403
