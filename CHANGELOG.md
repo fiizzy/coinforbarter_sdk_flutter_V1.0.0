@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 1.1.4
+
+- Minor code fixes
+
 ## 1.1.3
 
 - Moved all staging to live environment
