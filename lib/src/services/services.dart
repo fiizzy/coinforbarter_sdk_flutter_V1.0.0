@@ -103,7 +103,7 @@ class Services {
       dynamic response;
 
       response = await http.get(
-        Uri.parse('https://coinforbarter-app.herokuapp.com/v1/currencies'),
+        Uri.parse('${Util.END_POINT}/currencies'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
