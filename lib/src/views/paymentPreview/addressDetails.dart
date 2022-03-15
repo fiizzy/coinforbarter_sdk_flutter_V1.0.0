@@ -24,7 +24,7 @@ class AddressDetails extends StatelessWidget {
     String currency =
         _setCurrencyController.setCurrencyResponse!['data']['currency'];
     String network = _selectCurrencyController.selectedNetwork.value;
-    print(_lockCurrencyController.lockCurrencyresponse['data']);
+    // print(_lockCurrencyController.lockCurrencyresponse['data']);
     String address = _lockCurrencyController.lockCurrencyresponse['data']
         ['addressInformation']['address'];
 
@@ -42,7 +42,7 @@ class AddressDetails extends StatelessWidget {
                     const Text('You are to transfer'),
                     MyStyles.horizontalSpaceZero,
                     Text(
-                      '$amount $currency}',
+                      '$amount $currency',
                       style: MyStyles.bodyTextBold,
                     ),
                     Text(' on $network network'),
@@ -80,6 +80,13 @@ class AddressDetails extends StatelessWidget {
             Image.network(
               QRcode().getQRcode(currency, address, amount, network),
               height: 200,
+              errorBuilder: (context, object, stacktrace) {
+                return Container(
+                  padding: const EdgeInsets.all(70),
+                  child: const Text(
+                      "Unable to get QR code. Copy the address instead"),
+                );
+              },
               // loadingBuilder: (a, b, c) {
               //   return const CircularProgressIndicator();
               // },
@@ -112,8 +119,8 @@ class AddressDetails extends StatelessWidget {
                     ),
                   ),
                 ),
-                onTap: () {
-                  showAlert(context);
+                onTap: () async {
+                  await showAlert(context);
                 },
               ),
             )

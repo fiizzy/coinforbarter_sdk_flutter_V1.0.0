@@ -29,3 +29,4 @@ export 'package:coinforbarter_sdk/src/views/selectCurrency/selectCurrency.dart';
 export 'package:coinforbarter_sdk/src/views/selectCurrency/payment_processor.dart';
 export 'package:get/get.dart';
 export 'package:coinforbarter_sdk/src/utils/contextless_nav.dart';
+export 'package:coinforbarter_sdk/src/controllers/services_extension.dart';

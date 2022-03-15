@@ -1,12 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:coinforbarter_sdk/coinforbarter_sdk.dart';
 import 'package:flutter/material.dart';
-import 'package:coinforbarter_sdk/src/controllers/lock_currency_controller.dart';
-import 'package:coinforbarter_sdk/src/controllers/selectCurrency_controller.dart';
-import 'package:coinforbarter_sdk/src/controllers/serviceController.dart';
-import 'package:coinforbarter_sdk/src/styles/styles.dart';
-import 'package:coinforbarter_sdk/src/views/paymentPreview/paymentPreview.dart';
-import 'package:get/get.dart';
 
 Future<void> infoDialog(BuildContext context, Map setCurrencyResponse) async {
   final SelectCurrencyController _selectCurrencyController = Get.find();
@@ -66,12 +61,20 @@ Future<void> infoDialog(BuildContext context, Map setCurrencyResponse) async {
                             onTap: () async {
                               await _lockCurrencyController
                                   .lockCurrencyService();
+                              debugPrint(
+                                  "Currency locked. status ${_lockCurrencyController.statusCode}");
 
-                              //Update payment
-                              await _serviceController.getPaymentDetails(
-                                  _serviceController.paymentID);
-
-                              Get.offAll(() => PaymentPreview());
+                              if (_lockCurrencyController.statusCode != 409) {
+                                //Update payment
+                                await _serviceController.getPaymentDetails(
+                                    _serviceController.paymentID);
+                                debugPrint(
+                                    "Payment gets here  2 with status ${_lockCurrencyController.statusCode}");
+                                Get.to(() => PaymentPreview());
+                              } else {
+                                Get.offAll(() =>
+                                    const PaymentResponse(message: 'error'));
+                              }
                             },
                           ),
                   )

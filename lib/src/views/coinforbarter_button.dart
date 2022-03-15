@@ -1,12 +1,8 @@
-import 'package:coinforbarter_sdk/src/controllers/lock_currency_controller.dart';
+import 'package:coinforbarter_sdk/src/controllers/services_extension.dart';
 import 'package:coinforbarter_sdk/src/views/selectCurrency/payment_processor.dart';
 import 'package:flutter/material.dart';
-import 'package:coinforbarter_sdk/src/controllers/globalizer.dart';
-import 'package:coinforbarter_sdk/src/controllers/selectCurrency_controller.dart';
-import 'package:coinforbarter_sdk/src/controllers/serviceController.dart';
 import 'package:coinforbarter_sdk/src/models/config.dart';
 import 'package:coinforbarter_sdk/src/styles/styles.dart';
-import 'package:coinforbarter_sdk/src/views/selectCurrency/selectCurrency.dart';
 import 'package:get/get.dart';
 
 // ignore: must_be_immutable
@@ -25,19 +21,23 @@ class CoinForBarterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _serviceController = Get.put(ServiceController());
-    Get.put(LockCurrencyController());
-    final SelectCurrencyController _selectCurrencyController =
-        Get.put(SelectCurrencyController());
-    final GlobalizerController _globerlizerController =
-        Get.put(GlobalizerController());
+    final ServiceExtension _serviceExtension = Get.put(ServiceExtension());
+
+    // final GlobalizerController _globerlizerController =
+    //     Get.put(GlobalizerController());
 
     return ElevatedButton(
         style: ButtonStyle(
           padding: MaterialStateProperty.all(EdgeInsets.zero),
         ),
         onPressed: () async {
-          await coinForBarterInit(paymentConfig);
+          //The other loading value is set to false inside of the function below
+          try {
+            _serviceExtension.isLoading.value = true;
+            await coinForBarterInit(paymentConfig);
+          } catch (e) {
+            _serviceExtension.isLoading.value = false;
+          }
         },
         child: Container(
           color: color ?? MyStyles.primaryPurple,
@@ -52,7 +52,7 @@ class CoinForBarterButton extends StatelessWidget {
                   color: textColor ?? MyStyles.white,
                 ),
                 MyStyles.horizontalSpaceZero,
-                Obx(() => !_serviceController.isLoading.value
+                Obx(() => !_serviceExtension.isLoading.value
                     ? Text('Pay with CoinForBarterButton',
                         style: TextStyle(color: textColor ?? MyStyles.white))
                     : const CircularProgressIndicator(

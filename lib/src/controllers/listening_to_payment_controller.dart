@@ -16,7 +16,7 @@ import 'globalizer.dart';
 class ListeningToPaymentController extends GetxController {
   final ServiceController _serviceController = Get.find();
   final SelectCurrencyController _selectCurrencyController = Get.find();
-  final GlobalizerController _globalizerController = Get.find();
+  // final GlobalizerController _globalizerController = Get.find();
   int? countDownValue;
   late Timer timer;
 
@@ -30,12 +30,14 @@ class ListeningToPaymentController extends GetxController {
         Get.offAll(() => const PaymentResponse(message: 'success'));
 
         //Run call back function
-        _globalizerController.paymentConfig.callback!(
+        GlobalizerController.paymentConfig!.callback!(
           200,
           'payment successful',
           'Your CoinForbarter payment was successful',
           Status.success,
         );
+
+        timer.cancel();
 
         debugPrint('This payment was successful! ');
       } else if (_selectCurrencyController.getStatus() == 'error' ||
@@ -44,7 +46,7 @@ class ListeningToPaymentController extends GetxController {
         Get.offAll(() => const PaymentResponse(message: 'error'));
         Get.snackbar('Payment failed', 'This payment failed due to an error');
 
-        _globalizerController.paymentConfig.callback!(
+        GlobalizerController.paymentConfig!.callback!(
             200,
             'payment failed',
             'This Payment failed because the time expired or it was cancelled',
@@ -55,18 +57,16 @@ class ListeningToPaymentController extends GetxController {
             'This Payment failed because the time expired or it was cancelled');
         Get.snackbar('Payment failed', 'Time Expired');
         timer.cancel();
-      } else if (_selectCurrencyController.getStatus() == 'cancelled' ||
-          countDownValue == 0) {
+      } else if (_selectCurrencyController.getStatus() == 'cancelled') {
         //Use Get.off to avoid memory leakage
         Get.offAll(() => const PaymentResponse(message: 'error'));
         Get.snackbar('Payment Cancelled', 'This payment was cancelled');
 
-        _globalizerController.paymentConfig.callback!(200, 'payment cancelled',
+        GlobalizerController.paymentConfig!.callback!(200, 'payment cancelled',
             'This payment was cancelled', Status.cancelled);
 
         ///runcall back function
         debugPrint('This Payment failed because it was Cancelled/cancelled.');
-        Get.snackbar('Payment failed', 'Payment was cancelled');
         timer.cancel();
       } else if (_selectCurrencyController.getStatus() == 'in progress') {
         //do nothing

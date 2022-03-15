@@ -1,5 +1,27 @@
 # CHANGELOG.md
 
+## 1.1.4
+
+- Minor code fixes
+
+## 1.1.3
+
+- Moved all staging to live environment
+- Users can now make live payments
+- UI Fixes
+
+## 1.1.2
+
+- Refactored code to cleaner style
+  >
+- Cancel Payment efficiently handled
+  >
+- Ability to use the `coinForBarterInit()` method seamlessly
+  >
+- Optimized error handling of error handling currency downtime
+  >
+- Overall improvement and fixes of bug.
+
 ## 1.1.1
 
 - Optimized pub serviceController

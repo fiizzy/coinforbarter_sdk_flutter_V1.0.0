@@ -23,15 +23,24 @@ class PaymentPreview extends StatefulWidget {
 }
 
 class _PaymentPreviewState extends State<PaymentPreview> {
+  final ListeningToPaymentController _listeningToPaymentController =
+      Get.put(ListeningToPaymentController());
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    //A method called every 30s to get a payment response from the server
+    _listeningToPaymentController.statusCheker();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     //We initialize all controllers for later use
     final SelectCurrencyController _selectCurrencyController = Get.find();
     final LockCurrencyController _lockCurrencyController = Get.find();
-    final GlobalizerController _globalizerController = Get.find();
-    debugPrint(_globalizerController.paymentConfig.publicKey);
-    final ListeningToPaymentController _listeningToPaymentController =
-        Get.put(ListeningToPaymentController());
+    // final GlobalizerController _globalizerController = Get.find();
+    debugPrint(GlobalizerController.paymentConfig!.publicKey);
 
     //This gets the expiry time sent from the API in UTC format
     String getExpiryTime = _selectCurrencyController.getExpiryTime();
@@ -43,75 +52,77 @@ class _PaymentPreviewState extends State<PaymentPreview> {
     int endTime =
         DateTime.now().millisecondsSinceEpoch + 1000 * countDownInSeconds;
 
-    //A method called every 30s to get a payment response from the server
-    _listeningToPaymentController.statusCheker();
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+          appBar: AppBar(
+              leading: Container(),
+              title: const Text("Transfer"),
+              backgroundColor: MyStyles.primaryPurple),
+          backgroundColor: MyStyles.primaryPurple,
+          body: SafeArea(
+            child: Stack(
+              alignment: AlignmentDirectional.bottomCenter,
+              children: [
+                ListView(
+                  padding: const EdgeInsets.all(10),
+                  children: [
+                    ProductCard(
+                      businessName: _selectCurrencyController.getBusinessName(),
+                      paymentDescription:
+                          _selectCurrencyController.getDescription(),
+                      amount: _lockCurrencyController
+                          .lockCurrencyresponse['data']['amount'],
+                      baseCurrrency: _lockCurrencyController
+                          .lockCurrencyresponse['data']['currency'],
+                    ),
+                    MyStyles.verticalSpaceZero,
+                    const SecuredByCoinForBarter(),
+                    MyStyles.verticalSpaceOne,
+                    Text(
+                      "Address",
+                      style: MyStyles.headerOneW,
+                      textAlign: TextAlign.left,
+                    ),
+                    MyStyles.verticalSpaceOne,
+                    Card(
+                        color: MyStyles.gold,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Wrap(
+                            alignment: WrapAlignment.center,
+                            direction: Axis.horizontal,
+                            children: [
+                              // Obx(() =>
+                              CountdownTimer(
+                                endTime: endTime,
+                                onEnd: () {
+                                  _listeningToPaymentController.countDownValue =
+                                      0;
+                                  // _listeningToPaymentController.timer.cancel();
+                                  debugPrint(
+                                      'The time for this payment has expired');
+                                },
+                              ),
 
-    return Scaffold(
-        appBar: AppBar(
-            leading: Container(),
-            title: const Text("Transfer"),
-            backgroundColor: MyStyles.primaryPurple),
-        backgroundColor: MyStyles.primaryPurple,
-        body: SafeArea(
-          child: Stack(
-            alignment: AlignmentDirectional.bottomCenter,
-            children: [
-              ListView(
-                padding: const EdgeInsets.all(10),
-                children: [
-                  ProductCard(
-                    businessName: _selectCurrencyController.getBusinessName(),
-                    paymentDescription:
-                        _selectCurrencyController.getDescription(),
-                    amount: _lockCurrencyController.lockCurrencyresponse['data']
-                        ['amount'],
-                    baseCurrrency: _lockCurrencyController
-                        .lockCurrencyresponse['data']['currency'],
-                  ),
-                  MyStyles.verticalSpaceZero,
-                  const SecuredByCoinForBarter(),
-                  MyStyles.verticalSpaceOne,
-                  Text(
-                    "Address",
-                    style: MyStyles.headerOneW,
-                    textAlign: TextAlign.left,
-                  ),
-                  MyStyles.verticalSpaceOne,
-                  Card(
-                      color: MyStyles.gold,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Wrap(
-                          alignment: WrapAlignment.center,
-                          direction: Axis.horizontal,
-                          children: [
-                            // Obx(() =>
-                            CountdownTimer(
-                              endTime: endTime,
-                              onEnd: () {
-                                _listeningToPaymentController.countDownValue =
-                                    0;
-                                // _listeningToPaymentController.timer.cancel();
-                                debugPrint(
-                                    'The time for this payment has expired');
-                              },
-                            ),
-
-                            // Text(
-                            //     '${_timerCon.hrCounter}:${_timerCon.minCounter}:${_timerCon.secCounter}s Remaining',
-                            //     style: MyStyles.bodyText),
-                            // ),
-                            MyStyles.horizontalSpaceZero,
-                          ],
-                        ),
-                      )),
-                  GlobalizerController.isTest
-                      ? TestAddressCard()
-                      : AddressDetails()
-                ],
-              ),
-            ],
-          ),
-        ));
+                              // Text(
+                              //     '${_timerCon.hrCounter}:${_timerCon.minCounter}:${_timerCon.secCounter}s Remaining',
+                              //     style: MyStyles.bodyText),
+                              // ),
+                              MyStyles.horizontalSpaceZero,
+                            ],
+                          ),
+                        )),
+                    GlobalizerController.isTest
+                        ? TestAddressCard()
+                        : AddressDetails()
+                  ],
+                ),
+              ],
+            ),
+          )),
+    );
   }
 }

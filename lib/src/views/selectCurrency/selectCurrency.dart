@@ -9,13 +9,38 @@ class SelectCurrency extends StatelessWidget {
   Widget build(BuildContext context) {
     final SelectCurrencyController _selectCurrencyController =
         Get.put(SelectCurrencyController());
+    // final ServiceController _serviceController = Get.find();
     //This gets a List of currencies available for use
     _selectCurrencyController.getCurrencies();
 
     return Scaffold(
         appBar: AppBar(
-            title: const Text("Select Currency"),
-            backgroundColor: MyStyles.primaryPurple),
+          title: const Text("Select Currency"),
+          backgroundColor: MyStyles.primaryPurple,
+          leading: InkWell(
+              child: const Icon(
+                Icons.chevron_left,
+                color: Colors.white,
+                size: 30,
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              }),
+
+          //For now, payment can not be cancel from the server.
+          //So this will be uncommented when the API stops returning 403
+          //error for cancelling payment before locking it.
+
+          // leading: InkWell(
+          //     child: Icon(Icons.arrow_back_ios_new_rounded),
+          //     onTap: _serviceController.isLoading.value
+          //         ? () {}
+          //         : () async {
+          //             _serviceController.isLoading.value = true;
+          //             await _serviceController.cancelPayment();
+          //             _serviceController.isLoading.value = false;
+          //           }),
+        ),
         backgroundColor: MyStyles.primaryPurple,
         body: SafeArea(
           child: Stack(

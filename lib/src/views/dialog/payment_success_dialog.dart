@@ -12,7 +12,7 @@ class PaymentResponse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalizerController _globalizerController = Get.find();
+    // final GlobalizerController GlobalizerController = Get.find();!
 
     return Scaffold(
       body: Center(
@@ -32,6 +32,11 @@ class PaymentResponse extends StatelessWidget {
                         : const Icon(Icons.cached_rounded,
                             color: Colors.red, size: 60)),
             MyStyles.verticalSpaceZero,
+            message != 'error'
+                ? Container()
+                : const Text(
+                    "The payment was cancelled because \n the currency has a down time. \n Kindly try again with another currency. "),
+            MyStyles.verticalSpaceZero,
             message == 'success'
                 ? const Text(
                     'Payment successful',
@@ -47,19 +52,19 @@ class PaymentResponse extends StatelessWidget {
             ElevatedButton(
                 onPressed: () {
                   if (message == 'success') {
-                    _globalizerController.paymentConfig.callback!(
+                    GlobalizerController.paymentConfig!.callback!(
                         200,
                         'payment successful',
                         'Your CoinForbarter payment was successful',
                         Status.success);
                   } else if (message == 'cancelled') {
-                    _globalizerController.paymentConfig.callback!(
+                    GlobalizerController.paymentConfig!.callback!(
                         200,
                         'payment cancelled',
                         'Your CoinForbarter payment was cancelled',
                         Status.cancelled);
                   } else {
-                    _globalizerController.paymentConfig.callback!(
+                    GlobalizerController.paymentConfig!.callback!(
                         200,
                         'payment failed',
                         'Your CoinForbarter payment failed',
@@ -76,8 +81,10 @@ class PaymentResponse extends StatelessWidget {
                   child: Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text('Continue', style: TextStyle(color: Colors.white))
+                      children: [
+                        Text(
+                            '${message == 'success' ? 'Continue' : 'Try again'}',
+                            style: TextStyle(color: Colors.white))
                       ],
                     ),
                   ),
