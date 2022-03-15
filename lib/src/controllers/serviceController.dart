@@ -93,6 +93,7 @@ class ServiceController extends GetxController {
         debugPrint("Get currency details controller error $e $s");
         Get.snackbar('Error', "Couldn't cancel payment");
       }
+      isLoading.value = false;
       rethrow;
     }
   }
