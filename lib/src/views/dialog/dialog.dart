@@ -2,12 +2,6 @@
 
 import 'package:coinforbarter_sdk/coinforbarter_sdk.dart';
 import 'package:flutter/material.dart';
-import 'package:coinforbarter_sdk/src/controllers/lock_currency_controller.dart';
-import 'package:coinforbarter_sdk/src/controllers/selectCurrency_controller.dart';
-import 'package:coinforbarter_sdk/src/controllers/serviceController.dart';
-import 'package:coinforbarter_sdk/src/styles/styles.dart';
-import 'package:coinforbarter_sdk/src/views/paymentPreview/paymentPreview.dart';
-import 'package:get/get.dart';
 
 Future<void> infoDialog(BuildContext context, Map setCurrencyResponse) async {
   final SelectCurrencyController _selectCurrencyController = Get.find();
@@ -68,7 +62,7 @@ Future<void> infoDialog(BuildContext context, Map setCurrencyResponse) async {
                               await _lockCurrencyController
                                   .lockCurrencyService();
                               debugPrint(
-                                  "Payment gets here 1 with status ${_lockCurrencyController.statusCode}");
+                                  "Currency locked. status ${_lockCurrencyController.statusCode}");
 
                               if (_lockCurrencyController.statusCode != 409) {
                                 //Update payment

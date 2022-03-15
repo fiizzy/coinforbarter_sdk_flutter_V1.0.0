@@ -20,12 +20,8 @@ class SelectCurrencyController extends GetxController {
   RxString status = ''.obs;
 
   getBusinessName() {
-    try {
-      return businessName =
-          serviceController.paymentDetails['data']['branding']['businessName'];
-    } catch (e) {
-      Get.snackbar('Error', 'Error establishing connection $e');
-    }
+    return businessName =
+        serviceController.paymentDetails['data']['branding']['businessName'];
   }
 
   getDescription() {

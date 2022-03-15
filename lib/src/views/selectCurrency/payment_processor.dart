@@ -24,7 +24,6 @@ Future<void> coinForBarterInit(PaymentConfig paymentConfig) async {
         "The statusCode after posting payment config is: ${_serviceController.postDataStatusCode}");
 
     if (_serviceController.postDataStatusCode == 401) {
-      Get.snackbar('Unathourized', 'Check your API key');
       _serviceController.isLoading.value = false;
       throw Exception(
           ["A value in your PaymentConfig() object is not correctly set"]);
@@ -41,7 +40,7 @@ Future<void> coinForBarterInit(PaymentConfig paymentConfig) async {
       Get.to(() => SelectCurrency());
       _serviceExtension.isLoading.value = false;
     }
-  } on Exception catch (e, s) {
-    throw Exception([e, s]);
+  } catch (e) {
+    rethrow;
   }
 }

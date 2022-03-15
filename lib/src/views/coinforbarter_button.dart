@@ -32,8 +32,12 @@ class CoinForBarterButton extends StatelessWidget {
         ),
         onPressed: () async {
           //The other loading value is set to false inside of the function below
-          _serviceExtension.isLoading.value = true;
-          await coinForBarterInit(paymentConfig);
+          try {
+            _serviceExtension.isLoading.value = true;
+            await coinForBarterInit(paymentConfig);
+          } catch (e) {
+            _serviceExtension.isLoading.value = false;
+          }
         },
         child: Container(
           color: color ?? MyStyles.primaryPurple,

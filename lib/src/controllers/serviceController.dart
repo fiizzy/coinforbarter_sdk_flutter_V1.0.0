@@ -1,5 +1,7 @@
 // ignore_for_file: file_names, empty_catches
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:coinforbarter_sdk/src/services/services.dart';
 import 'package:get/get.dart';
@@ -20,14 +22,20 @@ class ServiceController extends GetxController {
     try {
       isLoading.value = true;
       postDataResponse = await c4bservices.postData();
-      // postDataStatusCode = postDataResponse.statusCode;
       if (postDataStatusCode == 201) {
+        debugPrint('Payment Details successfully fetched from the API!');
         paymentID = postDataResponse['data']['payment']['id'];
         isLoading.value = false;
       }
-    } catch (error) {
-      Get.snackbar('Error!', '$error');
-      debugPrint('runPostData() in serviceController throw error :$error');
+    } catch (e) {
+      if (e is SocketException) {
+        debugPrint("runPostData() details controller error $e");
+        Get.snackbar('Internet Error', "Couldn't get payment details");
+      } else {
+        debugPrint("runPostData() details controller error $e");
+        Get.snackbar('Error', "Couldn't get payment details");
+      }
+      rethrow;
     }
   }
 
@@ -38,8 +46,16 @@ class ServiceController extends GetxController {
       paymentDetails = await c4bservices.getPaymentDetails(paymentID);
       // getPaymentDetailsStatusCode = paymentDetails.statusCode;
       isLoading.value = false;
-    } catch (erorr) {
-      Get.snackbar('Error!', '$erorr');
+      debugPrint('Payment Details successfully fetched from the API!');
+    } catch (e) {
+      if (e is SocketException) {
+        debugPrint("Get payment details controller error $e");
+        Get.snackbar('Internet Error', "Couldn't get payment details");
+      } else {
+        debugPrint("Get payment details controller error $e");
+        Get.snackbar('Error', "Couldn't get payment details");
+      }
+      rethrow;
     }
   }
 
@@ -51,8 +67,15 @@ class ServiceController extends GetxController {
       currencyListings = listingsMap['data'];
       isLoading.value = false;
       debugPrint('Currencies successfully fetched from the API!');
-    } catch (erorr) {
-      // Get.snackbar('Error', "Couldn't get currency listings");
+    } catch (e) {
+      if (e is SocketException) {
+        debugPrint("Get currency details controller error $e");
+        Get.snackbar('Internet Error', "Couldn't get currency listings");
+      } else {
+        debugPrint("Get currency details controller error $e");
+        Get.snackbar('Error', "Couldn't get currency listings");
+      }
+      rethrow;
     }
   }
 
@@ -61,10 +84,16 @@ class ServiceController extends GetxController {
     try {
       isLoading.value = true;
       await c4bservices.cancelPayments(paymentID);
-      // currencyListings = listingsMap['data'];
       isLoading.value = false;
-    } catch (erorr) {
-      debugPrint("The cancel payment had an error $erorr");
+    } catch (e) {
+      if (e is SocketException) {
+        debugPrint("Get currency details controller error $e");
+        Get.snackbar('Internet Error', "Couldn't get cancel payment");
+      } else {
+        debugPrint("Get currency details controller error $e");
+        Get.snackbar('Error', "Couldn't cancel payment");
+      }
+      rethrow;
     }
   }
 }

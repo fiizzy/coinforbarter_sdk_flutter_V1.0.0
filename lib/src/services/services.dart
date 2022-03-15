@@ -1,30 +1,26 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:http/http.dart' as http;
 
 import '../../coinforbarter_sdk.dart';
 
 class Services {
-  // final GlobalizerController GlobalizerController =
-  //     Ge!t.put(GlobalizerController());
-
   ///This posts the payment config to the server and return a response
   Future postData() async {
-    final ServiceController _serviceController = Get.find();
-    // debugPrint('${GlobalizerController.paymentConfig!.customerPhoneNumber}');
-    dynamic response;
-    Map filteredConfig = {
-      "txRef": GlobalizerController.paymentConfig!.txRef,
-      "amount": GlobalizerController.paymentConfig!.amount,
-      "baseCurrency": GlobalizerController.paymentConfig!.baseCurrency,
-      "customer": GlobalizerController.paymentConfig!.customer,
-      "customerFullName": GlobalizerController.paymentConfig!.customerFullName,
-      // "customerPhoneNumber":
-      //     GlobalizerController.paymentConfig!.customerPhoneNumber ??
-      //         'No Phone Number',
-      "meta": {"from": "Flutter SDK Version 1.0.1"}
-    };
     try {
+      final ServiceController _serviceController = Get.find();
+      dynamic response;
+      Map filteredConfig = {
+        "txRef": GlobalizerController.paymentConfig!.txRef,
+        "amount": GlobalizerController.paymentConfig!.amount,
+        "baseCurrency": GlobalizerController.paymentConfig!.baseCurrency,
+        "customer": GlobalizerController.paymentConfig!.customer,
+        "customerFullName":
+            GlobalizerController.paymentConfig!.customerFullName,
+        "meta": {"from": "Flutter SDK"}
+      };
+
       response = await http.post(
         Uri.parse('${Util.END_POINT}/payments/checkout'),
         headers: <String, String>{
@@ -41,31 +37,32 @@ class Services {
       if (response.statusCode == 201 || response.statusCode == 200) {
         return jsonDecode(response.body);
       } else if (response.statusCode == 401) {
-        Get.snackbar('Unathorized', 'Check your Public Key and retry');
+        //Bad Public key
+        debugPrint("Your public key is not authorized");
         return jsonDecode(response.body);
       } else if (response.statusCode == 404) {
-        Get.snackbar('404 Error', 'Check the endpoint again');
+        debugPrint("postData() status: 404");
+
         return jsonDecode(response.body);
       } else if (response.body == "null") {
-        Get.snackbar('Server', 'API returning null');
+        debugPrint("postData() returning null from API");
+
         return jsonDecode(response.body);
       } else {
         return jsonDecode(response.body);
       }
-
-      // ignore: unused_catch_clause
     } on Exception catch (e) {
-      Get.snackbar('Error', 'Error establishing connection');
+      throw [e, StackTrace.current];
     }
   }
 
   //Get Payment Details Via ID
   Future getPaymentDetails(paymentID) async {
-    final ServiceController _serviceController = Get.find();
-
-    dynamic response;
-
     try {
+      final ServiceController _serviceController = Get.find();
+
+      dynamic response;
+
       response = await http.get(
         Uri.parse('${Util.END_POINT}/payments/checkout/$paymentID'),
         headers: <String, String>{
@@ -81,29 +78,30 @@ class Services {
       if (response.statusCode == 201 || response.statusCode == 200) {
         return jsonDecode(response.body);
       } else if (response.statusCode == 401) {
-        Get.snackbar('Unathorized', 'Check your Public Key and retry');
+        //Bad Public key
+        debugPrint("Your public key is not authorized");
         return jsonDecode(response.body);
       } else if (response.statusCode == 404) {
-        Get.snackbar('404 Error', 'Check the endpoint again');
+        debugPrint("getPaymentDetails() service status: 404");
+
+        return jsonDecode(response.body);
+      } else if (response.body == "null") {
+        debugPrint("getPaymentDetails() returning null from API");
+
         return jsonDecode(response.body);
       } else {
-        Get.snackbar('Error',
-            'Something went wrong from the API getting payment Details');
+        return jsonDecode(response.body);
       }
-
-      return jsonDecode(response.body);
-    } catch (erorr) {
-      Get.snackbar('Error', 'Error establishing connection');
-
-      return response;
+    } on Exception catch (e) {
+      throw [e, StackTrace.current];
     }
   }
 
   //Get a list of supported currencies by CoinForBarter
   Future getCurrencyListings() async {
-    dynamic response;
-
     try {
+      dynamic response;
+
       response = await http.get(
         Uri.parse('https://coinforbarter-app.herokuapp.com/v1/currencies'),
         headers: <String, String>{
@@ -114,27 +112,29 @@ class Services {
       if (response.statusCode == 201 || response.statusCode == 200) {
         return jsonDecode(response.body);
       } else if (response.statusCode == 401) {
-        Get.snackbar('Unathorized', 'Check your Public Key and retry');
+        //Bad Public key
+        debugPrint("Your public key is not authorized");
         return jsonDecode(response.body);
       } else if (response.statusCode == 404) {
-        Get.snackbar('404 Error', 'Check the endpoint again');
+        debugPrint("getCurrencyListings() service status: 404");
+
+        return jsonDecode(response.body);
+      } else if (response.body == "null") {
+        debugPrint("getCurrencyListings() returning null from API");
+
         return jsonDecode(response.body);
       } else {
-        Get.snackbar(
-            'Error', 'Something went wrong from the API: CurrencyListing');
+        return jsonDecode(response.body);
       }
-
-      return jsonDecode(response.body);
-    } catch (erorr) {
-      Get.snackbar('Error', 'Error establishing connection');
-      return response;
+    } catch (e) {
+      throw [e, StackTrace.current];
     }
   }
 
   //Set currency inorder to get the fees especially.
   Future setCurrency(paymentID, selectedCurrency, network, toJsonMap) async {
-    dynamic response;
     try {
+      dynamic response;
       response = await http.patch(
           Uri.parse(
               '${Util.END_POINT}/payments/checkout/$paymentID/currency/set/$selectedCurrency/$network'),
@@ -148,28 +148,31 @@ class Services {
       if (response.statusCode == 201 || response.statusCode == 200) {
         return jsonDecode(response.body);
       } else if (response.statusCode == 401) {
-        Get.snackbar('Unathorized', 'Check your Public Key and retry');
+        //Bad Public key
+        debugPrint("Your public key is not authorized");
         return jsonDecode(response.body);
       } else if (response.statusCode == 404) {
-        Get.snackbar('404 Error', 'Check the endpoint again');
+        debugPrint("setCurrency() service status: 404");
+
+        return jsonDecode(response.body);
+      } else if (response.body == "null") {
+        debugPrint("setCurrency() returning null from API");
         return jsonDecode(response.body);
       } else {
-        Get.snackbar('Error', 'Something went wrong from the API');
+        return jsonDecode(response.body);
       }
-
-      return jsonDecode(response.body);
-    } catch (erorr) {
-      Get.snackbar('Error', 'Error setCurrency trying');
-      return response;
+    } on Exception catch (e) {
+      throw [e, StackTrace.current];
     }
   }
 
   //Lock currency inorder to get the fees especially.
   Future lockCurrency(paymentID) async {
-    final LockCurrencyController _lockCurrencyController = Get.find();
-
-    dynamic response;
     try {
+      final LockCurrencyController _lockCurrencyController = Get.find();
+
+      dynamic response;
+
       response = await http.patch(
         Uri.parse(
             '${Util.END_POINT}/payments/checkout/$paymentID/currency/lock'),
@@ -199,22 +202,15 @@ class Services {
 
         return jsonDecode(response.body);
       }
-      // print(jsonDecode(response.body));
-      return jsonDecode(response.body);
-    } catch (erorr) {
-      Get.snackbar('Error', 'Error setCurrency trying');
-
-      //SET THE LOCK RESPONSE STATUSCODE IN ITS CONTROLLERS
-      _lockCurrencyController.statusCode = response.statusCode;
-
-      return response;
+    } on Exception catch (e) {
+      throw [e, StackTrace.current];
     }
   }
 
   //Lock currency inorder to get the fees especially.
   Future cancelPayments(paymentID) async {
-    dynamic response;
     try {
+      dynamic response;
       response = await http.patch(
         Uri.parse('${Util.END_POINT}/payments/checkout/$paymentID/cancel'),
         headers: <String, String>{
@@ -238,10 +234,8 @@ class Services {
 
         return jsonDecode(response.body);
       }
-      debugPrint('Internal Server error : ${response.body}');
-      return jsonDecode(response.body);
-    } catch (erorr) {
-      Get.snackbar('Error', 'Can not cancel payment');
+    } on Exception catch (e) {
+      throw [e, StackTrace.current];
     }
   }
 }
