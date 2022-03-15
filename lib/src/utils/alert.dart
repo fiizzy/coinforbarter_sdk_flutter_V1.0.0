@@ -9,7 +9,7 @@ showAlert(context) async {
 
   return await showDialog<void>(
     context: context,
-    barrierDismissible: false,
+    barrierDismissible: true,
     // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
