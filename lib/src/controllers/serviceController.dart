@@ -27,12 +27,12 @@ class ServiceController extends GetxController {
         paymentID = postDataResponse['data']['payment']['id'];
         isLoading.value = false;
       }
-    } catch (e) {
+    } catch (e, s) {
       if (e is SocketException) {
-        debugPrint("runPostData() details controller error $e");
+        debugPrint("runPostData() details controller error $e $s");
         Get.snackbar('Internet Error', "Couldn't get payment details");
       } else {
-        debugPrint("runPostData() details controller error $e");
+        debugPrint("runPostData() details controller error $e $s");
         Get.snackbar('Error', "Couldn't get payment details");
       }
       rethrow;
@@ -47,12 +47,12 @@ class ServiceController extends GetxController {
       // getPaymentDetailsStatusCode = paymentDetails.statusCode;
       isLoading.value = false;
       debugPrint('Payment Details successfully fetched from the API!');
-    } catch (e) {
+    } catch (e, s) {
       if (e is SocketException) {
-        debugPrint("Get payment details controller error $e");
+        debugPrint("Get payment details controller error $e $s");
         Get.snackbar('Internet Error', "Couldn't get payment details");
       } else {
-        debugPrint("Get payment details controller error $e");
+        debugPrint("Get payment details controller error $e $s");
         Get.snackbar('Error', "Couldn't get payment details");
       }
       rethrow;
@@ -67,12 +67,12 @@ class ServiceController extends GetxController {
       currencyListings = listingsMap['data'];
       isLoading.value = false;
       debugPrint('Currencies successfully fetched from the API!');
-    } catch (e) {
+    } catch (e, s) {
       if (e is SocketException) {
-        debugPrint("Get currency details controller error $e");
+        debugPrint("Get currency details controller error $e $s");
         Get.snackbar('Internet Error', "Couldn't get currency listings");
       } else {
-        debugPrint("Get currency details controller error $e");
+        debugPrint("Get currency details controller error $e $s");
         Get.snackbar('Error', "Couldn't get currency listings");
       }
       rethrow;
@@ -85,12 +85,12 @@ class ServiceController extends GetxController {
       isLoading.value = true;
       await c4bservices.cancelPayments(paymentID);
       isLoading.value = false;
-    } catch (e) {
+    } catch (e, s) {
       if (e is SocketException) {
-        debugPrint("Get currency details controller error $e");
+        debugPrint("Get currency details controller error $e $s");
         Get.snackbar('Internet Error', "Couldn't get cancel payment");
       } else {
-        debugPrint("Get currency details controller error $e");
+        debugPrint("Get currency details controller error $e $s");
         Get.snackbar('Error', "Couldn't cancel payment");
       }
       rethrow;

@@ -52,7 +52,7 @@ class Services {
         return jsonDecode(response.body);
       }
     } on Exception catch (e) {
-      throw [e, StackTrace.current];
+      rethrow;
     }
   }
 
@@ -93,7 +93,7 @@ class Services {
         return jsonDecode(response.body);
       }
     } on Exception catch (e) {
-      throw [e, StackTrace.current];
+      rethrow;
     }
   }
 
@@ -127,7 +127,7 @@ class Services {
         return jsonDecode(response.body);
       }
     } catch (e) {
-      throw [e, StackTrace.current];
+      rethrow;
     }
   }
 
@@ -162,7 +162,7 @@ class Services {
         return jsonDecode(response.body);
       }
     } on Exception catch (e) {
-      throw [e, StackTrace.current];
+      rethrow;
     }
   }
 
@@ -203,7 +203,7 @@ class Services {
         return jsonDecode(response.body);
       }
     } on Exception catch (e) {
-      throw [e, StackTrace.current];
+      rethrow;
     }
   }
 
@@ -235,7 +235,7 @@ class Services {
         return jsonDecode(response.body);
       }
     } on Exception catch (e) {
-      throw [e, StackTrace.current];
+      rethrow;
     }
   }
 }

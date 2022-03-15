@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_final_fields, file_names
 
+import 'dart:io';
+
 import 'package:coinforbarter_sdk/src/controllers/selectCurrency_controller.dart';
 import 'package:coinforbarter_sdk/src/models/setCurrency.dart';
 import 'package:coinforbarter_sdk/src/services/services.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 class SetCurrencyController extends GetxController {
@@ -31,6 +33,16 @@ class SetCurrencyController extends GetxController {
       isLoading.value = false;
       return setCurrencyResponse;
       // ignore: empty_catches
-    } catch (erorr) {}
+    } catch (e, s) {
+      if (e is SocketException) {
+        debugPrint("Get payment details controller error $e $s");
+        Get.snackbar('Internet Error', "Couldn't get Set Currency");
+      } else {
+        debugPrint("Get payment details controller error $e $s");
+        Get.snackbar('Error', "Couldn't get set currency");
+      }
+      isLoading.value = false;
+      rethrow;
+    }
   }
 }
