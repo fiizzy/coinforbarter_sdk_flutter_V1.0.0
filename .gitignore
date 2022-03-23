@@ -46,4 +46,4 @@ app.*.map.json
 /android/app/release
 
 #maincode
-# /lib/main.dart
+/lib/src/utils/keys.dart
