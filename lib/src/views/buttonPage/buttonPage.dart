@@ -6,7 +6,7 @@ import 'package:coinforbarter_sdk/coinforbarter_sdk.dart';
 class ButtonPage extends StatelessWidget {
   final PaymentConfig newPayment = PaymentConfig(
       // publicKey: 'XXXXXXXX',
-      publicKey: '1645778437579HPc1e4KJi13T0eQrSW3LP4lDkxpE1',
+      publicKey: 'C4B_TEST-xMxiwbIsK1632761320337oB8yYtGe3K8wBXFPPhZQ',
       txRef: 'Flutter final Reference 1',
       amount: "150000",
       baseCurrency: 'NGN',

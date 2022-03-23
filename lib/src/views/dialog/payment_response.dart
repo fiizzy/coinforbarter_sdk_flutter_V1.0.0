@@ -52,19 +52,19 @@ class PaymentResponse extends StatelessWidget {
             ElevatedButton(
                 onPressed: () {
                   if (message == 'success') {
-                    GlobalizerController.paymentConfig!.callback!(
+                    GlobalizerController.paymentConfig!.callback(
                         200,
                         'payment successful',
                         'Your CoinForbarter payment was successful',
                         Status.success);
                   } else if (message == 'cancelled') {
-                    GlobalizerController.paymentConfig!.callback!(
+                    GlobalizerController.paymentConfig!.callback(
                         200,
                         'payment cancelled',
                         'Your CoinForbarter payment was cancelled',
                         Status.cancelled);
                   } else {
-                    GlobalizerController.paymentConfig!.callback!(
+                    GlobalizerController.paymentConfig!.callback(
                         200,
                         'payment failed',
                         'Your CoinForbarter payment failed',

@@ -87,6 +87,18 @@ class AddressDetails extends StatelessWidget {
                       "Unable to get QR code. Copy the address instead"),
                 );
               },
+              loadingBuilder: (BuildContext context, Widget child,
+                  ImageChunkEvent? loadingProgress) {
+                if (loadingProgress == null) return child;
+                return Center(
+                  child: CircularProgressIndicator(
+                    value: loadingProgress.expectedTotalBytes != null
+                        ? loadingProgress.cumulativeBytesLoaded /
+                            loadingProgress.expectedTotalBytes!
+                        : null,
+                  ),
+                );
+              },
               // loadingBuilder: (a, b, c) {
               //   return const CircularProgressIndicator();
               // },

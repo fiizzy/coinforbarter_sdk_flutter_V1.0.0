@@ -13,7 +13,7 @@ class PaymentConfig {
   String customerFullName;
 
   ///This receives a Status code, message, Data (By the user) and Payment Status enum to be used when the payment ends
-  Function(int statuscode, String message, String data, Status paymentStatus)?
+  Function(int statuscode, String message, String data, Status paymentStatus)
       callback;
 
   PaymentConfig(

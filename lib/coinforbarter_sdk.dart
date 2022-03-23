@@ -18,7 +18,7 @@ export 'package:coinforbarter_sdk/src/utils/route.dart';
 export 'package:coinforbarter_sdk/src/views/buttonPage/buttonPage.dart';
 export 'package:coinforbarter_sdk/src/views/coinforbarter_button.dart';
 export 'package:coinforbarter_sdk/src/views/dialog/dialog.dart';
-export 'package:coinforbarter_sdk/src/views/dialog/payment_success_dialog.dart';
+export 'package:coinforbarter_sdk/src/views/dialog/payment_response.dart';
 export 'package:coinforbarter_sdk/src/views/nextButton.dart';
 export 'package:coinforbarter_sdk/src/views/paymentPreview/addressDetails.dart';
 export 'package:coinforbarter_sdk/src/views/paymentPreview/paymentPreview.dart';
