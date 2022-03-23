@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 1.1.5
+
+- Error handling was improved a great deal.
+
 ## 1.1.4
 
 - Minor code fixes

@@ -19,7 +19,8 @@ Follow these simple steps to start
 Add the following line to your pubspec.yaml file.
 
 ```dart
-dependencies: coinforbarter_sdk:
+dependencies: 
+  coinforbarter_sdk:
 ```
 
 _You are advised to use the latest version of the SDK for the best experience._
