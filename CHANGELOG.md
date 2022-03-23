@@ -1,5 +1,10 @@
 # CHANGELOG.md
 
+## 1.1.6
+
+- Callback function is now required
+- Callback function now showing success message on transaction end
+
 ## 1.1.5
 
 - Error handling was improved a great deal.

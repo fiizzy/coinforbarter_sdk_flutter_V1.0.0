@@ -19,7 +19,7 @@ Follow these simple steps to start
 Add the following line to your pubspec.yaml file.
 
 ```dart
-dependencies: 
+dependencies:
   coinforbarter_sdk:
 ```
 
@@ -85,7 +85,7 @@ The `PaymentConfig()` object allows you provide a payload that contains most of 
 - `baseCurrency`
 - `customer`
 - `customerFullName`
-- `callback`
+- `callback //required`
   - ##### The callback function
     Your callback function should recieve 4 main arguments which are going to be passed through into your function when a payment has been processed. The arguments are in this order
     - `statusCode`
