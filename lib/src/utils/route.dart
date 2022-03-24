@@ -1,6 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'keys.dart';
+// import 'keys.dart';
 
 class Util {
   static String qrCode =
@@ -8,7 +8,8 @@ class Util {
   static String END_POINT = 'https://api.coinforbarter.com/v1';
   // static String END_POINT = 'https://coinforbarter-api.herokuapp.com/v1';
 
-  static String PUBLIC_KEY = SensitiveKeys.publicKeyTest;
+  // static String PUBLIC_KEY = SensitiveKeys.publicKeyTest;
+  // static String PUBLIC_KEY = SensitiveKeys.publicKeyTest;
 }
 
 class QRcode {

@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 1.1.6-bugfix
+
+- bug fix from previous release.
+
 ## 1.1.6
 
 - Callback function is now required
