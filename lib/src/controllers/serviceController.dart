@@ -2,6 +2,7 @@
 
 import 'dart:io';
 
+import 'package:coinforbarter_sdk/src/Exceptions/minimum_payment.dart';
 import 'package:flutter/material.dart';
 import 'package:coinforbarter_sdk/src/services/services.dart';
 import 'package:get/get.dart';
@@ -26,6 +27,16 @@ class ServiceController extends GetxController {
         debugPrint('Payment Details successfully fetched from the API!');
         paymentID = postDataResponse['data']['payment']['id'];
         isLoading.value = false;
+      } else if (postDataStatusCode == 409) {
+        //check what kind of error it is from the error message in the body
+        if (postDataResponse["message"]
+            .contains("Charge must be grater than equivalent of")) {
+          throw MinimumPaymentException("Your payment must be ");
+        }
+        return Get.snackbar(
+            'Request Conflict', "There was a conflict with your request");
+
+        //Throw Minimum Payment exception
       }
     } catch (e, s) {
       if (e is SocketException) {

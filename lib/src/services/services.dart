@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:http/http.dart' as http;
 
 import '../../coinforbarter_sdk.dart';
+import '../Exceptions/minimum_payment.dart';
 
 class Services {
   ///This posts the payment config to the server and return a response
@@ -43,6 +44,10 @@ class Services {
       } else if (response.statusCode == 404) {
         debugPrint("postData() status: 404");
 
+        return jsonDecode(response.body);
+      } else if (response.statusCode == 409) {
+        debugPrint("This were was a MinimumPaymentException");
+        //rethrow the exception
         return jsonDecode(response.body);
       } else if (response.body == "null") {
         debugPrint("postData() returning null from API");
