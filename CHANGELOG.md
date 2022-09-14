@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 1.1.7
+
+- Bug fixes from other previous version
+
 ## 1.1.6-bugfix
 
 - bug fix from previous release.
