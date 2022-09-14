@@ -31,7 +31,7 @@ class ServiceController extends GetxController {
         //check what kind of error it is from the error message in the body
         if (postDataResponse["message"]
             .contains("Charge must be grater than equivalent of")) {
-          throw MinimumPaymentException("Your payment must be ");
+          throw MinimumPaymentException(postDataResponse["message"]);
         }
         return Get.snackbar(
             'Request Conflict', "There was a conflict with your request");
