@@ -30,3 +30,4 @@ export 'package:coinforbarter_sdk/src/views/selectCurrency/payment_processor.dar
 export 'package:get/get.dart';
 export 'package:coinforbarter_sdk/src/utils/contextless_nav.dart';
 export 'package:coinforbarter_sdk/src/controllers/services_extension.dart';
+export 'package:coinforbarter_sdk/src/Exceptions/minimum_payment.dart';
